@@ -5,3 +5,6 @@ from .race import Race
 from. alignment import Alignment
 from .background import Background
 from .language import Language
+from .savingthrow import SavingThrow
+from .skill import Skill
+from .ability import Ability

@@ -1,0 +1,45 @@
+[
+    {
+        "model": "dungeonapi.savingthrow",
+        "pk": 1,
+        "fields": {
+            "label": "Strength",
+            "description": ""
+        }
+    }, {
+        "model": "dungeonapi.savingthrow",
+        "pk": 2,
+        "fields": {
+            "label": "Dexterity",
+            "description": ""
+        }
+    }, {
+        "model": "dungeonapi.savingthrow",
+        "pk": 3,
+        "fields": {
+            "label": "Constitution",
+            "description": ""
+        }
+    }, {
+        "model": "dungeonapi.savingthrow",
+        "pk": 4,
+        "fields": {
+            "label": "Intelligence",
+            "description": ""
+        }
+    }, {
+        "model": "dungeonapi.savingthrow",
+        "pk": 5,
+        "fields": {
+            "label": "Wisdom",
+            "description": ""
+        }
+    }, {
+        "model": "dungeonapi.savingthrow",
+        "pk": 6,
+        "fields": {
+            "label": "Charisma",
+            "description": ""
+        }
+    }
+]
