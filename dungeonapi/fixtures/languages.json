@@ -1,0 +1,163 @@
+[
+    {
+        "model": "dungeonapi.language",
+        "pk": 1,
+        "fields": {
+            "label": "Common",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Humans",
+            "script": "Common"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 2,
+        "fields": {
+            "label": "Dwarvish",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Dwarves",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 3,
+        "fields": {
+            "label": "Elvish",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Elves",
+            "script": "Elvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 4,
+        "fields": {
+            "label": "Giant",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Ogres, giants",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 5,
+        "fields": {
+            "label": "Gnomish",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Gnomes",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 6,
+        "fields": {
+            "label": "Goblin",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Goblinoids",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 7,
+        "fields": {
+            "label": "Halfling",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Halflings",
+            "script": "Common"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 8,
+        "fields": {
+            "label": "Orc",
+            "description": "",
+            "exotic": false,
+            "typical_speakers": "Orcs",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 9,
+        "fields": {
+            "label": "Abyssal",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Demons",
+            "script": "Infernal"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 10,
+        "fields": {
+            "label": "Celestial",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Celestials",
+            "script": "Celestial"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 11,
+        "fields": {
+            "label": "Draconic",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Dragons, dragonborn",
+            "script": "Draconic"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 12,
+        "fields": {
+            "label": "Deep Speech",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Mind flayers, beholders",
+            "script": "--"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 13,
+        "fields": {
+            "label": "Infernal",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Devils",
+            "script": "Infernal"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 14,
+        "fields": {
+            "label": "Primordial",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Elementals",
+            "script": "Dwarvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 15,
+        "fields": {
+            "label": "Sylvan",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Fey creatures",
+            "script": "Elvish"
+        }
+    }, {
+        "model": "dungeonapi.language",
+        "pk": 16,
+        "fields": {
+            "label": "Undercommon",
+            "description": "",
+            "exotic": true,
+            "typical_speakers": "Underdark traders",
+            "script": "Elvish"
+        }
+    }
+]
