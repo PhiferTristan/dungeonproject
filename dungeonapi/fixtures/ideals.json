@@ -1,0 +1,783 @@
+[
+    {
+        "model": "dungeonapi.ideal",
+        "pk": 1,
+        "fields": {
+            "label": "Tradition",
+            "description": "The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 1,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 2,
+        "fields": {
+            "label": "Clarity",
+            "description": "I always try to help those in need, no matter what the personal cost. (Good)",
+            "alignment_group": "Good",
+            "background_id": 1,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 3,
+        "fields": {
+            "label": "Change",
+            "description": "We must help bring about the changes the gods are constantly working in the world. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 1,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 4,
+        "fields": {
+            "label": "Power",
+            "description": "I hope to one day rise to the top of my faith’s religious hierarchy. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 1,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 5,
+        "fields": {
+            "label": "Faith",
+            "description": "I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 1,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 6,
+        "fields": {
+            "label": "Aspiration",
+            "description": "I seek to prove myself worthy of my god’s favor by matching my actions against his or her teachings. (Any)",
+            "alignment_group": "Any",
+            "background_id": 1,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 7,
+        "fields": {
+            "label": "Independence",
+            "description": "I am a free spirit— no one tells me what to do. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 2,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 8,
+        "fields": {
+            "label": "Fairness",
+            "description": "I never target people who can’t afford to lose a few coins. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 2,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 9,
+        "fields": {
+            "label": "Charity",
+            "description": "I distribute the money I acquire to the people who really need it. (Good)",
+            "alignment_group": "Good",
+            "background_id": 2,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 10,
+        "fields": {
+            "label": "Creativity",
+            "description": "I never run the same con twice. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 2,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 11,
+        "fields": {
+            "label": "Friendship",
+            "description": "Material goods come and go. Bonds of friendship last forever. (Good)",
+            "alignment_group": "Good",
+            "background_id": 2,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 12,
+        "fields": {
+            "label": "Aspiration",
+            "description": "I’m determined to make something of myself. (Any)",
+            "alignment_group": "Any",
+            "background_id": 2,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 13,
+        "fields": {
+            "label": "Honor",
+            "description": "I don’t steal from others in the trade. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 3,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 14,
+        "fields": {
+            "label": "Freedom",
+            "description": "Chains are meant to be broken, as are those who would forge them. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 3,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 15,
+        "fields": {
+            "label": "Charity",
+            "description": "I steal from the wealthy so that I can help people in need. (Good)",
+            "alignment_group": "Good",
+            "background_id": 3,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 16,
+        "fields": {
+            "label": "Greed",
+            "description": "I will do whatever it takes to become wealthy. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 3,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 17,
+        "fields": {
+            "label": "People",
+            "description": "I’m loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 3,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 18,
+        "fields": {
+            "label": "Redemption",
+            "description": "There’s a spark of good in everyone. (Good)",
+            "alignment_group": "Good",
+            "background_id": 3,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 19,
+        "fields": {
+            "label": "Beauty",
+            "description": "When I perform, I make the world better than it was. (Good)",
+            "alignment_group": "Good",
+            "background_id": 4,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 20,
+        "fields": {
+            "label": "Tradition",
+            "description": "The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 4,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 21,
+        "fields": {
+            "label": "Creativity",
+            "description": "The world is in need of new ideas and bold action. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 4,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 22,
+        "fields": {
+            "label": "Greed",
+            "description": "I’m only in it for the money and fame. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 4,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 23,
+        "fields": {
+            "label": "People",
+            "description": "I like seeing the smiles on people’s faces when I perform. That’s all that matters. (Neutral",
+            "alignment_group": "Neutral",
+            "background_id": 4,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 24,
+        "fields": {
+            "label": "Honesty",
+            "description": "Art should reflect the soul; it should come from within and reveal who we really are. (Any)",
+            "alignment_group": "Any",
+            "background_id": 4,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 25,
+        "fields": {
+            "label": "Respect",
+            "description": "People deserve to be treated with dignity and respect. (Good)",
+            "alignment_group": "Good",
+            "background_id": 5,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 26,
+        "fields": {
+            "label": "Fairness",
+            "description": "No one should get preferential treatment before the law, and no one is above the law. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 5,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 27,
+        "fields": {
+            "label": "Freedom",
+            "description": ". Tyrants must not be allowed to oppress the people. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 5,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 28,
+        "fields": {
+            "label": "Might",
+            "description": "If I become strong, I can take what I want— what I deserve. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 5,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 29,
+        "fields": {
+            "label": "Sincerity",
+            "description": "There’s no good in pretending to be something I’m not. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 5,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 30,
+        "fields": {
+            "label": "Destiny",
+            "description": "Nothing and no one can steer me away from my higher calling. (Any)",
+            "alignment_group": "Any",
+            "background_id": 5,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 31,
+        "fields": {
+            "label": "Community",
+            "description": "It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 6,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 32,
+        "fields": {
+            "label": "Generosity",
+            "description": "My talents were given to me so that I could use them to benefit the world. (Good)",
+            "alignment_group": "Good",
+            "background_id": 6,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 33,
+        "fields": {
+            "label": "Freedom",
+            "description": "Everyone should be free to pursue his or her own livelihood. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 6,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 34,
+        "fields": {
+            "label": "Greed",
+            "description": "I’m only in it for the money. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 6,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 35,
+        "fields": {
+            "label": "People",
+            "description": " I’m committed to the people I care about, not to ideals. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 6,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 36,
+        "fields": {
+            "label": "Aspiration",
+            "description": "I work hard to be the best there is at my craft.",
+            "alignment_group": "Any",
+            "background_id": 6,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 37,
+        "fields": {
+            "label": "Greater Good",
+            "description": "My gifts are meant to be shared with all, not used for my own benefit. (Good)",
+            "alignment_group": "Good",
+            "background_id": 7,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 38,
+        "fields": {
+            "label": "Logic",
+            "description": "Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 7,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 39,
+        "fields": {
+            "label": "Free Thinking",
+            "description": "Inquiry and curiosity are the pillars of progress. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 7,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 40,
+        "fields": {
+            "label": "Power",
+            "description": "Solitude and contemplation are paths toward mystical or magical power. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 7,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 41,
+        "fields": {
+            "label": "Live and Let Live",
+            "description": "Meddling in the affairs of others only causes trouble. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 7,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 42,
+        "fields": {
+            "label": "Self-Knowlegde",
+            "description": "If you know yourself, there’s nothing left to know. (Any)",
+            "alignment_group": "Any",
+            "background_id": 7,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 43,
+        "fields": {
+            "label": "Respect",
+            "description": "Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)",
+            "alignment_group": "Good",
+            "background_id": 8,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 44,
+        "fields": {
+            "label": "Responsibility",
+            "description": " It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 8,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 45,
+        "fields": {
+            "label": "Independence",
+            "description": "I must prove that I can handle myself without the coddling of my family. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 8,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 46,
+        "fields": {
+            "label": "Power",
+            "description": "If I can attain more power, no one will tell me what to do. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 8,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 47,
+        "fields": {
+            "label": "Family",
+            "description": "Blood runs thicker than water. (Any)",
+            "alignment_group": "Any",
+            "background_id": 8,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 48,
+        "fields": {
+            "label": "Noble Obligation",
+            "description": "It is my duty to protect and care for the people beneath me. (Good)",
+            "alignment_group": "Good",
+            "background_id": 8,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 49,
+        "fields": {
+            "label": "Change",
+            "description": "Life is like the seasons, in constant change, and we must change with it. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 9,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 50,
+        "fields": {
+            "label": "Greater Good",
+            "description": "It is each person’s responsibility to make the most happiness for the whole tribe. (Good)",
+            "alignment_group": "Good",
+            "background_id": 9,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 51,
+        "fields": {
+            "label": "Honor",
+            "description": "If I dishonor myself, I dishonor my whole clan. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 9,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 52,
+        "fields": {
+            "label": "Might",
+            "description": "The strongest are meant to rule. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 9,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 53,
+        "fields": {
+            "label": "Nature",
+            "description": "The natural world is more important than all the constructs of civilization. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 9,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 54,
+        "fields": {
+            "label": "Glory",
+            "description": "I must earn glory in battle, for myself and my clan. (Any)",
+            "alignment_group": "Any",
+            "background_id": 9,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 55,
+        "fields": {
+            "label": "Knowledge",
+            "description": "The path to power and self-improvement is through knowledge. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 10,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 56,
+        "fields": {
+            "label": "Beauty",
+            "description": "What is beautiful points us beyond itself toward what is true. (Good)",
+            "alignment_group": "Good",
+            "background_id": 10,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 57,
+        "fields": {
+            "label": "Logic",
+            "description": "Emotions must not cloud our logical thinking. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 10,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 58,
+        "fields": {
+            "label": "No Limits",
+            "description": "Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 10,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 59,
+        "fields": {
+            "label": "Power",
+            "description": "Knowledge is the path to power and domination. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 10,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 60,
+        "fields": {
+            "label": "Self-Improvement",
+            "description": "The goal of a life of study is the betterment of oneself. (Any)",
+            "alignment_group": "Any",
+            "background_id": 10,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 61,
+        "fields": {
+            "label": "Respect",
+            "description": "The thing that keeps a ship together is mutual respect between captain and crew. (Good)",
+            "alignment_group": "Good",
+            "background_id": 11,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 62,
+        "fields": {
+            "label": "Fairness",
+            "description": "We all do the work, so we all share in the rewards. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 11,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 63,
+        "fields": {
+            "label": "Freedom",
+            "description": "The sea is freedom— the freedom to go anywhere and do anything. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 11,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 64,
+        "fields": {
+            "label": "Mastery",
+            "description": "I’m a predator, and the other ships on the sea are my prey. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 11,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 65,
+        "fields": {
+            "label": "People",
+            "description": " I’m committed to my crewmates, not to ideals. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 11,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 66,
+        "fields": {
+            "label": "Aspiration",
+            "description": "Someday I’ll own my own ship and chart my own destiny. (Any)",
+            "alignment_group": "Any",
+            "background_id": 11,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 67,
+        "fields": {
+            "label": "Greater Good",
+            "description": "Our lot is to lay down our lives in defense of others. (Good)",
+            "alignment_group": "Good",
+            "background_id": 12,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 68,
+        "fields": {
+            "label": "Responsibility",
+            "description": "I do what I must and obey just authority. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 12,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 69,
+        "fields": {
+            "label": "Independence",
+            "description": "When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 12,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 70,
+        "fields": {
+            "label": "Might",
+            "description": "In life as in war, the stronger force wins. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 12,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 71,
+        "fields": {
+            "label": "Live and Let Live",
+            "description": "Ideals aren’t worth killing over or going to war for. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 12,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 72,
+        "fields": {
+            "label": "Nation",
+            "description": " My city, nation, or people are all that matter. (Any)",
+            "alignment_group": "Any",
+            "background_id": 12,
+            "d6_number": 6
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 73,
+        "fields": {
+            "label": "Respect",
+            "description": "All people, rich or poor, deserve respect. (Good)",
+            "alignment_group": "Good",
+            "background_id": 13,
+            "d6_number": 1
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 74,
+        "fields": {
+            "label": "Community",
+            "description": "We have to take care of each other, because no one else is going to do it. (Lawful)",
+            "alignment_group": "Lawful",
+            "background_id": 13,
+            "d6_number": 2
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 75,
+        "fields": {
+            "label": "Change",
+            "description": "The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)",
+            "alignment_group": "Chaotic",
+            "background_id": 13,
+            "d6_number": 3
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 76,
+        "fields": {
+            "label": "Retribution",
+            "description": "The rich need to be shown what life and death are like in the gutters. (Evil)",
+            "alignment_group": "Evil",
+            "background_id": 13,
+            "d6_number": 4
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 77,
+        "fields": {
+            "label": "People",
+            "description": "I help the people who help me— that’s what keeps us alive. (Neutral)",
+            "alignment_group": "Neutral",
+            "background_id": 13,
+            "d6_number": 5
+        }
+    }, {
+        "model": "dungeonapi.ideal",
+        "pk": 78,
+        "fields": {
+            "label": "Aspiration",
+            "description": "I'm going to prove that I'm worthy of a better life.",
+            "alignment_group": "Any",
+            "background_id": 13,
+            "d6_number": 6
+        }
+    }
+]

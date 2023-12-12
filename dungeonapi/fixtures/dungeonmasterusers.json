@@ -14,11 +14,11 @@
         "model": "dungeonapi.dungeonmasteruser",
         "pk": 2,
         "fields": {
-            "bio": "This is my capstone.",
+            "bio": "Keep going!",
             "profile_image_url": "",
             "created_on": "2023-12-03",
-            "discord_username": "Triscuit",
-            "lfg_status": "True",
+            "discord_username": "Davy",
+            "lfg_status": "False",
             "user": 2
         }
     }

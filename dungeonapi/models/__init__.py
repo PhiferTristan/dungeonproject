@@ -8,3 +8,5 @@ from .language import Language
 from .savingthrow import SavingThrow
 from .skill import Skill
 from .ability import Ability
+from .flaw import Flaw
+from .ideal import Ideal

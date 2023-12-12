@@ -16,3 +16,5 @@ python3 manage.py loaddata languages
 python3 manage.py loaddata skills
 python3 manage.py loaddata abilities
 python3 manage.py loaddata savingthrows
+python3 manage.py loaddata flaws
+python3 manage.py loaddata ideals
