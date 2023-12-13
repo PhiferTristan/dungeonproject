@@ -18,3 +18,5 @@ python3 manage.py loaddata abilities
 python3 manage.py loaddata savingthrows
 python3 manage.py loaddata flaws
 python3 manage.py loaddata ideals
+python3 manage.py loaddata bonds
+python3 manage.py loaddata personalitytraits

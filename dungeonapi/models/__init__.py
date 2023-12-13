@@ -10,3 +10,5 @@ from .skill import Skill
 from .ability import Ability
 from .flaw import Flaw
 from .ideal import Ideal
+from .bond import Bond
+from .personalitytrait import PersonalityTrait
