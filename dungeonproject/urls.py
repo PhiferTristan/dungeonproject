@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from dungeonapi.views import UserViewSet, RaceViewSet
+from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet
 from django.conf.urls.static import static
 from . import settings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'races', RaceViewSet, "race")
+router.register(r'alignments', AlignmentViewSet, "alignments")
 
 urlpatterns = [
     path('', include(router.urls)),
