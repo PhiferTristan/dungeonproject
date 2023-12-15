@@ -20,3 +20,5 @@ python3 manage.py loaddata flaws
 python3 manage.py loaddata ideals
 python3 manage.py loaddata bonds
 python3 manage.py loaddata personalitytraits
+python3 manage.py loaddata dndclasses
+python3 manage.py loaddata subclasses

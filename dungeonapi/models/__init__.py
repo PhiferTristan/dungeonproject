@@ -12,3 +12,5 @@ from .flaw import Flaw
 from .ideal import Ideal
 from .bond import Bond
 from .personalitytrait import PersonalityTrait
+from .dndclass import DnDClass
+from .subclass import Subclass

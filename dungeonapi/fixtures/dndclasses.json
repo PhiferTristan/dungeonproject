@@ -1,132 +1,132 @@
 [
     {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 1,
         "fields": {
             "label": "Barbarian",
             "description": "A fierce warrior of primitive background who can enter a battle rage",
-            "hit die": 12,
+            "hit_die": 12,
             "primary_ability": "Strength",
             "saving_throw_prof_1": 1,
             "saving_throw_prof_2": 3
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 2,
         "fields": {
             "label": "Bard",
             "description": "An inspiring magician whose power echoes the music of creation",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Charisma",
             "saving_throw_prof_1": 2,
             "saving_throw_prof_2": 6
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 3,
         "fields": {
             "label": "Cleric",
             "description": "A priestly champion who wields divine magic in service of a higher power",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Wisdom",
             "saving_throw_prof_1": 5,
             "saving_throw_prof_2": 6
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 4,
         "fields": {
             "label": "Druid",
             "description": "A priest of the Old Faith, wielding the powers of nature— moonlight and plant growth, fire and lightning— and adopting animal forms",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Wisdom",
             "saving_throw_prof_1": 4,
             "saving_throw_prof_2": 5
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 5,
         "fields": {
             "label": "Fighter",
             "description": "A master of martial combat, skilled with a variety of weapons and armor",
-            "hit die": 10,
+            "hit_die": 10,
             "primary_ability": "Strength or Dexterity",
             "saving_throw_prof_1": 1,
             "saving_throw_prof_2": 3
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 6,
         "fields": {
             "label": "Monk",
             "description": "An master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Dexterity and Wisdom",
             "saving_throw_prof_1": 1,
             "saving_throw_prof_2": 2
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 7,
         "fields": {
             "label": "Paladin",
             "description": "A holy warrior bound to a sacred oath",
-            "hit die": 10,
+            "hit_die": 10,
             "primary_ability": "Strength and Charisma",
             "saving_throw_prof_1": 5,
             "saving_throw_prof_2": 6
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 8,
         "fields": {
             "label": "Ranger",
             "description": " A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization",
-            "hit die": 10,
+            "hit_die": 10,
             "primary_ability": "Dexterity and Wisdom",
             "saving_throw_prof_1": 1,
             "saving_throw_prof_2": 2
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 9,
         "fields": {
             "label": "Rogue",
             "description": "A scoundrel who uses stealth and trickery to overcome obstacles and enemies",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Dexterity",
             "saving_throw_prof_1": 2,
             "saving_throw_prof_2": 4
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 10,
         "fields": {
             "label": "Sorcerer",
             "description": "A spellcaster who draws on inherent magic from a gift or bloodline",
-            "hit die": 6,
+            "hit_die": 6,
             "primary_ability": "Charisma",
             "saving_throw_prof_1": 3,
             "saving_throw_prof_2": 6
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 11,
         "fields": {
             "label": "Warlock",
             "description": "A wielder of magic that is derived from a bargain with an extraplanar entity",
-            "hit die": 8,
+            "hit_die": 8,
             "primary_ability": "Charisma",
             "saving_throw_prof_1": 5,
             "saving_throw_prof_2": 6
         }
     }, {
-        "model": "dungeonapi.class",
+        "model": "dungeonapi.dndclass",
         "pk": 12,
         "fields": {
             "label": "Wizard",
             "description": "A scholarly magic-user capable of manipulating the structures of reality",
-            "hit die": 6,
+            "hit_die": 6,
             "primary_ability": "Intelligence",
             "saving_throw_prof_1": 4,
             "saving_throw_prof_2": 5
