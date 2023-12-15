@@ -6,3 +6,4 @@ from .alignments import AlignmentViewSet
 from .backgrounds import BackgroundViewSet
 from .languages import LanguageViewSet
 from .skills import SkillViewSet
+from .abilities import AbilityViewSet

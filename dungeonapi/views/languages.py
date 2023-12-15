@@ -9,13 +9,13 @@ class LanguageSerializer(serializers.ModelSerializer):
 
 class LanguageViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all backgrounds"""
+        """Handle GET requests for all languages"""
         languages = Language.objects.all()
         serializer = LanguageSerializer(languages, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single background"""
+        """Handle GET requests for a single language"""
         try:
             background = Language.objects.get(pk=pk)
             serializer = LanguageSerializer(background, context={"request": request})

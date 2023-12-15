@@ -9,13 +9,13 @@ class SkillSerializer(serializers.ModelSerializer):
 
 class SkillViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all backgrounds"""
+        """Handle GET requests for all skills"""
         skills = Skill.objects.all()
         serializer = SkillSerializer(skills, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single background"""
+        """Handle GET requests for a single skill"""
         try:
             skill = Skill.objects.get(pk=pk)
             serializer = SkillSerializer(skill, context={"request": request})
