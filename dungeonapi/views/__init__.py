@@ -12,3 +12,4 @@ from .flaws import FlawViewSet
 from .ideals import IdealViewSet
 from .bonds import BondViewSet
 from .personalitytraits import PersonalityTraitViewSet
+from .dndclasses import DnDClassViewSet
