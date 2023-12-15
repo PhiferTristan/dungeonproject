@@ -4,3 +4,4 @@ from .dungeonmasterusers import DungeonMasterUserViewSet
 from .races import RaceViewSet
 from .alignments import AlignmentViewSet
 from .backgrounds import BackgroundViewSet
+from .languages import LanguageViewSet
