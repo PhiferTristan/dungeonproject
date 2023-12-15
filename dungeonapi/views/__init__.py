@@ -9,3 +9,4 @@ from .skills import SkillViewSet
 from .abilities import AbilityViewSet
 from .savingthrows import SavingThrowViewSet
 from .flaws import FlawViewSet
+from .ideals import IdealViewSet
