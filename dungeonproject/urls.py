@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet
+from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet
 from django.conf.urls.static import static
 from .import settings
 
@@ -12,6 +12,7 @@ router.register(r'backgrounds', BackgroundViewSet, "background")
 router.register(r'languages', LanguageViewSet, "language")
 router.register(r'skills', SkillViewSet, "skill")
 router.register(r'abilities', AbilityViewSet, "ability")
+router.register(r'savingthrows', SavingThrowViewSet, "savingthrow")
 
 urlpatterns = [
     path('', include(router.urls)),
