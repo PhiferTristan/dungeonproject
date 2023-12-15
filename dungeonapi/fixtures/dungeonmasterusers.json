@@ -1,0 +1,25 @@
+[
+    {
+        "model": "dungeonapi.dungeonmasteruser",
+        "pk": 1,
+        "fields": {
+            "bio": "This is my capstone.",
+            "profile_image_url": "",
+            "created_on": "2023-12-03",
+            "discord_username": "Triscuit",
+            "lfg_status": "True",
+            "user": 1
+        }
+    }, {
+        "model": "dungeonapi.dungeonmasteruser",
+        "pk": 2,
+        "fields": {
+            "bio": "Keep going!",
+            "profile_image_url": "",
+            "created_on": "2023-12-03",
+            "discord_username": "Davy",
+            "lfg_status": "False",
+            "user": 2
+        }
+    }
+]

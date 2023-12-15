@@ -1,0 +1,939 @@
+[
+    {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 1,
+        "fields": {
+          "label": "",
+          "description": "I idolize a particular hero of my faith, and constantly refer to that person’s deeds and example.",
+          "background_id": 1,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 2,
+        "fields": {
+          "label": "",
+          "description": "I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.",
+          "background_id": 1,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 3,
+        "fields": {
+          "label": "",
+          "description": "I see omens in every event and action. The gods try to speak to us, we just need to listen.",
+          "background_id": 1,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 4,
+        "fields": {
+          "label": "",
+          "description": "Nothing can shake my optimistic attitude.",
+          "background_id": 1,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 5,
+        "fields": {
+          "label": "",
+          "description": "I quote (or misquote) sacred texts and proverbs in almost every situation.",
+          "background_id": 1,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 6,
+        "fields": {
+          "label": "",
+          "description": "I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.",
+          "background_id": 1,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 7,
+        "fields": {
+          "label": "",
+          "description": "I've enjoyed fine food, drink, and high society among my temple’s elite. Rough living grates on me.",
+          "background_id": 1,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 8,
+        "fields": {
+          "label": "",
+          "description": "I’ve spent so long in the temple that I have little practical experience dealing with people in the outside world.",
+          "background_id": 1,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 9,
+        "fields": {
+          "label": "",
+          "description": "I fall in and out of love easily, and am always pursuing someone.",
+          "background_id": 2,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 10,
+        "fields": {
+          "label": "",
+          "description": "I have a joke for every occasion, especially occasions where humor is inappropriate.",
+          "background_id": 2,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 11,
+        "fields": {
+          "label": "",
+          "description": "Flattery is my preferred trick for getting what I want.",
+          "background_id": 2,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 12,
+        "fields": {
+          "label": "",
+          "description": " I’m a born gambler who can't resist taking a risk for a potential payoff.",
+          "background_id": 2,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 13,
+        "fields": {
+          "label": "",
+          "description": "I lie about almost everything, even when there’s no good reason to.",
+          "background_id": 2,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 14,
+        "fields": {
+          "label": "",
+          "description": "Sarcasm and insults are my weapons of choice.",
+          "background_id": 2,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 15,
+        "fields": {
+          "label": "",
+          "description": "I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.",
+          "background_id": 2,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 16,
+        "fields": {
+          "label": "",
+          "description": "I pocket anything I see that might have some value.",
+          "background_id": 2,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 17,
+        "fields": {
+          "label": "",
+          "description": "I always have a plan for what to do when things go wrong.",
+          "background_id": 3,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 18,
+        "fields": {
+          "label": "",
+          "description": "I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.",
+          "background_id": 3,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 19,
+        "fields": {
+          "label": "",
+          "description": "The first I do in a new place is note the locations of everything valuable- or where such things could be hidden.",
+          "background_id": 3,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 20,
+        "fields": {
+          "label": "",
+          "description": "I would rather make a new friend than a new enemy.",
+          "background_id": 3,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 21,
+        "fields": {
+          "label": "",
+          "description": "I am incredibly slow to trust. Those who seem the fairest often have the most to hide.",
+          "background_id": 3,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 22,
+        "fields": {
+          "label": "",
+          "description": "I don't pay attention to the risks in a situation. Never tell me the odds.",
+          "background_id": 3,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 23,
+        "fields": {
+          "label": "",
+          "description": "The best way to get me to do something is to tell me I can't do it.",
+          "background_id": 3,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 24,
+        "fields": {
+          "label": "",
+          "description": "I blow up at the slightest insult.",
+          "background_id": 3,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 25,
+        "fields": {
+          "label": "",
+          "description": "I know a story relevant to almost every situation.",
+          "background_id": 4,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 26,
+        "fields": {
+          "label": "",
+          "description": "Whenever I come to a new place, I collect local rumors and spread gossip.",
+          "background_id": 4,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 27,
+        "fields": {
+          "label": "",
+          "description": "I’m a hopeless romantic, always searching for that “special someone.”",
+          "background_id": 4,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 28,
+        "fields": {
+          "label": "",
+          "description": "Nobody stays angry at me or around me for long, since I can defuse any amount of tension.",
+          "background_id": 4,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 29,
+        "fields": {
+          "label": "",
+          "description": "I love a good insult, even one directed at me.",
+          "background_id": 4,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 30,
+        "fields": {
+          "label": "",
+          "description": "I get bitter if I’m not the center of attention.",
+          "background_id": 4,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 31,
+        "fields": {
+          "label": "",
+          "description": "I’ll settle for nothing less than perfection.",
+          "background_id": 4,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 32,
+        "fields": {
+          "label": "",
+          "description": "I change my mood or my mind as quickly as I change key in a song.",
+          "background_id": 4,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 33,
+        "fields": {
+          "label": "",
+          "description": "I judge people by their actions, not their words.",
+          "background_id": 5,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 34,
+        "fields": {
+          "label": "",
+          "description": "If someone is in trouble, I’m always ready to lend help.",
+          "background_id": 5,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 35,
+        "fields": {
+          "label": "",
+          "description": "When I set my mind to something, I follow through no matter what gets in my way.",
+          "background_id": 5,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 36,
+        "fields": {
+          "label": "",
+          "description": "I have a strong sense of fair play and always try to find the most equitable solution to arguments.",
+          "background_id": 5,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 37,
+        "fields": {
+          "label": "",
+          "description": "I’m confident in my own abilities and do what I can to instill confidence in others.",
+          "background_id": 5,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 38,
+        "fields": {
+          "label": "",
+          "description": "Thinking is for other people. I prefer action.",
+          "background_id": 5,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 39,
+        "fields": {
+          "label": "",
+          "description": "I misuse long words in an attempt to sound smarter.",
+          "background_id": 5,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 40,
+        "fields": {
+          "label": "",
+          "description": "I get bored easily. When am I going to get on with my destiny?",
+          "background_id": 5,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 41,
+        "fields": {
+          "label": "",
+          "description": "I believe that anything worth doing is worth doing right. I can’t help it— I’m a perfectionist.",
+          "background_id": 6,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 42,
+        "fields": {
+          "label": "",
+          "description": "I’m a snob who looks down on those who can’t appreciate fine art.",
+          "background_id": 6,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 43,
+        "fields": {
+          "label": "",
+          "description": "I always want to know how things work and what makes people tick.",
+          "background_id": 6,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 44,
+        "fields": {
+          "label": "",
+          "description": "I’m full of witty aphorisms and have a proverb for every occasion.",
+          "background_id": 6,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 45,
+        "fields": {
+          "label": "",
+          "description": "I’m rude to people who lack my commitment to hard work and fair play.",
+          "background_id": 6,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 46,
+        "fields": {
+          "label": "",
+          "description": "I like to talk at length about my profession.",
+          "background_id": 6,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 47,
+        "fields": {
+          "label": "",
+          "description": "I don’t part with my money easily and will haggle tirelessly to get the best deal possible.",
+          "background_id": 6,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 48,
+        "fields": {
+          "label": "",
+          "description": "I’m well known for my work, and I want to make sure everyone appreciates it. I'm always taken aback when people haven’t heard of me.",
+          "background_id": 6,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 49,
+        "fields": {
+          "label": "",
+          "description": "I’ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.",
+          "background_id": 7,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 50,
+        "fields": {
+          "label": "",
+          "description": "I am utterly serene, even in the face of disaster.",
+          "background_id": 7,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 51,
+        "fields": {
+          "label": "",
+          "description": "The leader of my community had something wise to say on every topic, and I am eager to share that wisdom.",
+          "background_id": 7,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 52,
+        "fields": {
+          "label": "",
+          "description": "I feel tremendous empathy for all who suffer.",
+          "background_id": 7,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 53,
+        "fields": {
+          "label": "",
+          "description": "I’m oblivious to etiquette and social expectations.",
+          "background_id": 7,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 54,
+        "fields": {
+          "label": "",
+          "description": "I connect everything that happens to me to a grand, cosmic plan.",
+          "background_id": 7,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 55,
+        "fields": {
+          "label": "",
+          "description": "I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.",
+          "background_id": 7,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 56,
+        "fields": {
+          "label": "",
+          "description": "I am working on a grand philosophical theory and love sharing my ideas.",
+          "background_id": 7,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 57,
+        "fields": {
+          "label": "",
+          "description": "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
+          "background_id": 8,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 58,
+        "fields": {
+          "label": "",
+          "description": "The common folk love me for my kindness and generosity.",
+          "background_id": 8,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 59,
+        "fields": {
+          "label": "",
+          "description": "No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.",
+          "background_id": 8,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 60,
+        "fields": {
+          "label": "",
+          "description": "I take great pains to always look my best and follow the latest fashions.",
+          "background_id": 8,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 61,
+        "fields": {
+          "label": "",
+          "description": "I don’t like to get my hands dirty, and I won’t be caught dead in unsuitable accommodations.",
+          "background_id": 8,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 62,
+        "fields": {
+          "label": "",
+          "description": "Despite my noble birth, I do not place myself above other folk. We all have the same blood.",
+          "background_id": 8,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 63,
+        "fields": {
+          "label": "",
+          "description": "My favor, once lost, is lost forever.",
+          "background_id": 8,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 64,
+        "fields": {
+          "label": "",
+          "description": "If you do me an injury, I will crush you, ruin your name, and salt your fields.",
+          "background_id": 8,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 65,
+        "fields": {
+          "label": "",
+          "description": "I’m driven by a wanderlust that led me away from home.",
+          "background_id": 9,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 66,
+        "fields": {
+          "label": "",
+          "description": " I watch over my friends as if they were a litter of newborn pups.",
+          "background_id": 9,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 67,
+        "fields": {
+          "label": "",
+          "description": "I once ran twenty-five miles without stopping to warn to my clan of an approaching orc horde. I’d do it again if I had to.",
+          "background_id": 9,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 68,
+        "fields": {
+          "label": "",
+          "description": "I have a lesson for every situation, drawn from observing nature.",
+          "background_id": 9,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 69,
+        "fields": {
+          "label": "",
+          "description": "I place no stock in wealthy or well-mannered folk. Money and manners won’t save you from a hungry owlbear.",
+          "background_id": 9,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 70,
+        "fields": {
+          "label": "",
+          "description": "I’m always picking things up, absently fiddling with them, and sometimes accidentally breaking them.",
+          "background_id": 9,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 71,
+        "fields": {
+          "label": "",
+          "description": "I feel far more comfortable around animals than people.",
+          "background_id": 9,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 72,
+        "fields": {
+          "label": "",
+          "description": "I was, in fact, raised by wolves.",
+          "background_id": 9,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 73,
+        "fields": {
+          "label": "",
+          "description": "I use polysyllabic words that convey the impression of great erudition.",
+          "background_id": 10,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 74,
+        "fields": {
+          "label": "",
+          "description": "I've read every book in the world’s greatest libraries— or I like to boast that I have.",
+          "background_id": 10,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 75,
+        "fields": {
+          "label": "",
+          "description": "I'm used to helping out those who aren’t as smart as I am, and I patiently explain anything and everything to others.",
+          "background_id": 10,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 76,
+        "fields": {
+          "label": "",
+          "description": "There’s nothing I like more than a good mystery.",
+          "background_id": 10,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 77,
+        "fields": {
+          "label": "",
+          "description": "I’m willing to listen to every side of an argument before I make my own judgment.",
+          "background_id": 10,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 78,
+        "fields": {
+          "label": "",
+          "description": "I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . . to me.",
+          "background_id": 10,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 79,
+        "fields": {
+          "label": "",
+          "description": "I am horribly, horribly awkward in social situations.",
+          "background_id": 10,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 80,
+        "fields": {
+          "label": "",
+          "description": "I’m convinced that people are always trying to steal my secrets.",
+          "background_id": 10,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 81,
+        "fields": {
+          "label": "",
+          "description": "My friends know they can rely on me, no matter what.",
+          "background_id": 11,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 82,
+        "fields": {
+          "label": "",
+          "description": "I work hard so that I can play hard when the work is done.",
+          "background_id": 11,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 83,
+        "fields": {
+          "label": "",
+          "description": "I enjoy sailing into new ports and making new friends over a flagon of ale.",
+          "background_id": 11,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 84,
+        "fields": {
+          "label": "",
+          "description": "I stretch the truth for the sake of a good story.",
+          "background_id": 11,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 85,
+        "fields": {
+          "label": "",
+          "description": "To me, a tavern brawl is a nice way to get to know a new city.",
+          "background_id": 11,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 86,
+        "fields": {
+          "label": "",
+          "description": "I never pass up a friendly wager.",
+          "background_id": 11,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 87,
+        "fields": {
+          "label": "",
+          "description": "My language is as foul as an otyugh nest.",
+          "background_id": 11,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 88,
+        "fields": {
+          "label": "",
+          "description": "I like a job well done, especially if I can convince someone else to do it.",
+          "background_id": 11,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 89,
+        "fields": {
+          "label": "",
+          "description": "I'm always polite and respectful.",
+          "background_id": 12,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 90,
+        "fields": {
+          "label": "",
+          "description": "I’m haunted by memories o f war. I can’t get the images of violence out of my mind.",
+          "background_id": 12,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 91,
+        "fields": {
+          "label": "",
+          "description": "I’ve lost too many friends, and I’m slow to make new ones.",
+          "background_id": 12,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 92,
+        "fields": {
+          "label": "",
+          "description": "I’m full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.",
+          "background_id": 12,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 93,
+        "fields": {
+          "label": "",
+          "description": "I can stare down a hell hound without flinching.",
+          "background_id": 12,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 94,
+        "fields": {
+          "label": "",
+          "description": "I enjoy being strong and like breaking things.",
+          "background_id": 12,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 95,
+        "fields": {
+          "label": "",
+          "description": "I have a crude sense of humor.",
+          "background_id": 12,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 96,
+        "fields": {
+          "label": "",
+          "description": "I face problems head-on. A simple, direct solution is the best path to success.",
+          "background_id": 12,
+          "d8_number": 8
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 97,
+        "fields": {
+          "label": "",
+          "description": "I hide scraps of food and trinkets away in my pockets.",
+          "background_id": 13,
+          "d8_number": 1
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 98,
+        "fields": {
+          "label": "",
+          "description": "I ask a lot of questions.",
+          "background_id": 13,
+          "d8_number": 2
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 99,
+        "fields": {
+          "label": "",
+          "description": "I like to squeeze into small places where no one else can get to me.",
+          "background_id": 13,
+          "d8_number": 3
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 100,
+        "fields": {
+          "label": "",
+          "description": "I sleep with my back to a wall or tree, with everything I own wrapped in a bundle in my arms.",
+          "background_id": 13,
+          "d8_number": 4
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 101,
+        "fields": {
+          "label": "",
+          "description": "I eat like a pig and have bad manners.",
+          "background_id": 13,
+          "d8_number": 5
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 102,
+        "fields": {
+          "label": "",
+          "description": "I think anyone who’s nice to me is hiding evil intent.",
+          "background_id": 13,
+          "d8_number": 6
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 103,
+        "fields": {
+          "label": "",
+          "description": "I don’t like to bathe.",
+          "background_id": 13,
+          "d8_number": 7
+        }
+      }, {
+        "model": "dungeonapi.personalitytrait",
+        "pk": 104,
+        "fields": {
+          "label": "",
+          "description": "I bluntly say what other people are hinting at or hiding.",
+          "background_id": 13,
+          "d8_number": 8
+        }
+      }
+]
