@@ -5,30 +5,39 @@ from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from dungeonapi.models import PlayerUser
-from .playerusers import PlayerUserSerializer
+from dungeonapi.models import PlayerUser, DungeonMasterUser
+from dungeonapi.models import CustomUser
+# from .playerusers import PlayerUserSerializer
+# from .dungeonmasterusers import DungeonMasterUserSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password')
+        model = CustomUser
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type')
         extra_kwargs = {'password': {'write_only': True}}
 
 class UserViewSet(viewsets.ViewSet):
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     permission_classes = [permissions.AllowAny]
 
     @action(detail=False, methods=['post'], url_path='register')
     def register_account(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            user = User.objects.create_user(
+
+            user = CustomUser.objects.create_user(
                 username=serializer.validated_data['username'],
                 first_name=serializer.validated_data['first_name'],
                 last_name=serializer.validated_data['last_name'],
                 email=serializer.validated_data['email'],
-                password=serializer.validated_data['password']
+                password=serializer.validated_data['password'],
+                user_type=serializer.validated_data.get('user_type', 'Player')
             )
+
+            if user.user_type == 'DM':
+                DungeonMasterUser.objects.create(user=user)
+            else:
+                PlayerUser.objects.create(user=user)
 
             token, created = Token.objects.get_or_create(user=user)
 
@@ -39,16 +48,6 @@ class UserViewSet(viewsets.ViewSet):
                 'id': token.user.id
             }
 
-            # player_user = PlayerUser.objects.create(
-            #     bio = request.data.get('bio'),
-            #     user = User.objects.get(username=request.data['username'])
-            # )
-
-            # try:
-            #     player_serializer = PlayerUserSerializer(player_user, context={"request": request})
-            # except:
-            #     return Response(player_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -81,3 +80,4 @@ class UserViewSet(viewsets.ViewSet):
             # Bad login details were provided. So we can't log the user in.
             data = { 'valid': False }
             return Response(data)
+        
