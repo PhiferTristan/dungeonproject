@@ -1,6 +1,6 @@
 [
     {
-        "model": "dungeonapi.ability",
+        "model": "dungeonapi.skill",
         "pk": 1,
         "fields": {
             "label": "Acrobatics",

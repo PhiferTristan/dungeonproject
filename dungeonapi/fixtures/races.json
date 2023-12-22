@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "label": "Dwarf",
-      "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.    Dwarven skin ranges from deep brown to a paler hue tinged with red, but the most com m on shades are light brown or deep tan, like certain tones of earth. Their hair, w orn long but in simple styles, is usually black, gray, or brown, though paler dwarves often have red hair. Male dwarves value their beards highly and groom them carefully",
+      "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller. Their courage and endurance are also easily a match for any of the larger folk.    Dwarven skin ranges from deep brown to a paler hue tinged with red, but the most com m on shades are light brown or deep tan, like certain tones of earth. Their hair, w orn long but in simple styles, is usually black, gray, or brown, though paler dwarves often have red hair. Male dwarves value their beards highly and groom them carefully.",
       "speed": 25
     }
   }, {
@@ -60,7 +60,7 @@
     "pk": 8,
     "fields": {
       "label": "Half-Orc",
-      "description": "Half-orcs’ grayish pigmentation, sloping foreheads, jutting jaws, prominent teeth, and towering builds make their orcish heritage plain for all to see. H alf-orcs stand between 6 and 7 feet tall and usually weigh between 180 and 250 pounds.   Orcs regard battle scars as tokens of pride and ornamental scars as things of beauty. Other scars, though, mark an orc or half-orc as a former slave or a disgraced exile. Any half-orc w ho has lived am ong or near orcs has scars, whether they are marks of humiliation or of pride, recounting their past exploits and injuries. Such a half-orc living am ong humans might display these scars proudly or hide them in shame.",
+      "description": "Half-orcs’ grayish pigmentation, sloping foreheads, jutting jaws, prominent teeth, and towering builds make their orcish heritage plain for all to see. Half-orcs stand between 6 and 7 feet tall and usually weigh between 180 and 250 pounds.   Orcs regard battle scars as tokens of pride and ornamental scars as things of beauty. Other scars, though, mark an orc or half-orc as a former slave or a disgraced exile. Any half-orc w ho has lived am ong or near orcs has scars, whether they are marks of humiliation or of pride, recounting their past exploits and injuries. Such a half-orc living am ong humans might display these scars proudly or hide them in shame.",
       "speed": 30
     }
   }, {
