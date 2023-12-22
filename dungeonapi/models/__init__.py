@@ -1,3 +1,4 @@
+from .customuser import CustomUser
 from .dungeonmasteruser import DungeonMasterUser
 from .playeruser import PlayerUser
 from .character import Character

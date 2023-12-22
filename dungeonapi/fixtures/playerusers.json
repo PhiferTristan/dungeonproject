@@ -8,7 +8,7 @@
             "created_on": "2023-12-03",
             "discord_username": "Triscuit",
             "lfg_status": "True",
-            "user": 3
+            "user": 2
         }
     }, {
         "model": "dungeonapi.playeruser",
@@ -19,7 +19,7 @@
             "created_on": "2023-12-03",
             "discord_username": "Triscuit",
             "lfg_status": "True",
-            "user": 4
+            "user": 3
         }
     }, {
         "model": "dungeonapi.playeruser",
@@ -30,11 +30,22 @@
             "created_on": "2023-12-03",
             "discord_username": "Triscuit",
             "lfg_status": "True",
-            "user": 5
+            "user": 4
         }
     }, {
         "model": "dungeonapi.playeruser",
         "pk": 4,
+        "fields": {
+            "bio": "This is my capstone.",
+            "profile_image_url": "",
+            "created_on": "2023-12-03",
+            "discord_username": "Triscuit",
+            "lfg_status": "True",
+            "user": 5
+        }
+    }, {
+        "model": "dungeonapi.playeruser",
+        "pk": 5,
         "fields": {
             "bio": "This is my capstone.",
             "profile_image_url": "",
