@@ -7,13 +7,11 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from dungeonapi.models import PlayerUser, DungeonMasterUser
 from dungeonapi.models import CustomUser
-# from .playerusers import PlayerUserSerializer
-# from .dungeonmasterusers import DungeonMasterUserSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type')
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type', 'bio', 'discord_username', 'profile_image_url')
         extra_kwargs = {'password': {'write_only': True}}
 
 class UserViewSet(viewsets.ViewSet):
@@ -31,7 +29,10 @@ class UserViewSet(viewsets.ViewSet):
                 last_name=serializer.validated_data['last_name'],
                 email=serializer.validated_data['email'],
                 password=serializer.validated_data['password'],
-                user_type=serializer.validated_data.get('user_type', 'Player')
+                user_type=serializer.validated_data.get('user_type', 'Player'),
+                bio=serializer.validated_data.get('bio', ''),
+                discord_username=serializer.validated_data.get('discord_username', ''),
+                profile_image_url=serializer.validated_data.get('profile_image_url', '')
             )
 
             if user.user_type == 'DM':

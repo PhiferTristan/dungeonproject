@@ -9,9 +9,9 @@ class CustomUser(AbstractUser):
 
     user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='Player')
 
-    bio = models.CharField(max_length=355)
-    profile_image_url = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=255)
-    discord_username = models.CharField(max_length=55)
+    bio = models.CharField(max_length=355, blank=True)
+    profile_image_url = models.URLField(max_length=255, blank=True)
+    discord_username = models.CharField(max_length=55, blank=True)
 
     def __str__(self):
         return self.username
