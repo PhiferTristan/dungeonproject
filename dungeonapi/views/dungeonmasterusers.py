@@ -6,13 +6,34 @@ from dungeonapi.models import DungeonMasterUser
 from dungeonapi.models import CustomUser
 from .users import UserSerializer
 
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'user_type')
+
 class DungeonMasterUserSerializer(serializers.ModelSerializer):
+    user = CustomUserSerializer()
+
     class Meta:
         model = DungeonMasterUser
-        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'discord_username', 'lfg_status', 'user_id')
+        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'discord_username', 'lfg_status', 'user')
 
 class DungeonMasterUserViewSet(viewsets.ViewSet):
-    pass
+    def list(self, request):
+        """Handle GET requests for all flaws"""
+        dungeonmasterusers = DungeonMasterUser.objects.all()
+        serializer = DungeonMasterUserSerializer(dungeonmasterusers, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        """Handle GET requests for a single flaw"""
+        try:
+            dungeonmasteruser = DungeonMasterUser.objects.get(pk=pk)
+            serializer = DungeonMasterUserSerializer(dungeonmasteruser, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except DungeonMasterUser.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
     # @action(detail=False, methods=['post'], url_path='register')
     # def create_dm_user(self, request):
 
