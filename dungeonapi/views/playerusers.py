@@ -15,7 +15,7 @@ class PlayerUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PlayerUser
-        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'discord_username', 'lfg_status', 'user')
+        fields = ('id', 'lfg_status', 'user')
 
 class PlayerUserViewSet(viewsets.ViewSet):
     def list(self, request):
