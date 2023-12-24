@@ -4,15 +4,35 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from dungeonapi.models import PlayerUser
 from dungeonapi.models import CustomUser
-from .users import UserSerializer
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'user_type')
 
 class PlayerUserSerializer(serializers.ModelSerializer):
+    user = CustomUserSerializer()
+
     class Meta:
         model = PlayerUser
-        fields = ('id', 'bio', 'profile_image_url', 'created_on', 'discord_username', 'lfg_status', 'user_id')
+        fields = ('id', 'lfg_status', 'user')
 
 class PlayerUserViewSet(viewsets.ViewSet):
-    pass
+    def list(self, request):
+        """Handle GET requests for all flaws"""
+        playerusers = PlayerUser.objects.all()
+        serializer = PlayerUserSerializer(playerusers, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        """Handle GET requests for a single flaw"""
+        try:
+            playeruser = PlayerUser.objects.get(pk=pk)
+            serializer = PlayerUserSerializer(playeruser, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except PlayerUser.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
     # @action(detail=False, methods=['post'], url_path='register')
     # def create_player_user(self, request):
 

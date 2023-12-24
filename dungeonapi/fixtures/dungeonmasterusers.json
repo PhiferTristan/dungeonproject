@@ -3,10 +3,6 @@
         "model": "dungeonapi.dungeonmasteruser",
         "pk": 1,
         "fields": {
-            "bio": "This is my capstone.",
-            "profile_image_url": "",
-            "created_on": "2023-12-03",
-            "discord_username": "Triscuit",
             "lfg_status": "True",
             "user": 1
         }
