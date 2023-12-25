@@ -21,6 +21,7 @@ router.register(r'dndclasses', DnDClassViewSet, "dndclass")
 router.register(r'subclasses', SubclassViewSet, "subclass")
 router.register(r'dungeonmasters', DungeonMasterUserViewSet, "dungeonmaster")
 router.register(r'players', PlayerUserViewSet, "playeruser")
+router.register(r'users', UserViewSet, 'user')
 
 
 urlpatterns = [
