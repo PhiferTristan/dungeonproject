@@ -20,13 +20,13 @@ class DungeonMasterUserSerializer(serializers.ModelSerializer):
 
 class DungeonMasterUserViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all flaws"""
+        """Handle GET requests for all Dungeon Masters"""
         dungeonmasterusers = DungeonMasterUser.objects.all()
         serializer = DungeonMasterUserSerializer(dungeonmasterusers, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single flaw"""
+        """Handle GET requests for a single Dungeon Master"""
         try:
             dungeonmasteruser = DungeonMasterUser.objects.get(pk=pk)
             serializer = DungeonMasterUserSerializer(dungeonmasteruser, context={"request": request})
