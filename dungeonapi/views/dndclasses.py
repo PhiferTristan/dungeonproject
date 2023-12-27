@@ -9,13 +9,13 @@ class DnDClassSerializer(serializers.ModelSerializer):
 
 class DnDClassViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all dnd classes"""
+        """Handle GET requests for all Dnd Classes"""
         dnd_classes = DnDClass.objects.all()
         serializer = DnDClassSerializer(dnd_classes, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single dnd class"""
+        """Handle GET requests for a single Dnd Class"""
         try:
             dnd_class = DnDClass.objects.get(pk=pk)
             serializer = DnDClassSerializer(dnd_class, context={"request": request})

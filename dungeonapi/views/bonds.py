@@ -9,13 +9,13 @@ class BondSerializer(serializers.ModelSerializer):
 
 class BondViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all bonds"""
+        """Handle GET requests for all Bonds"""
         bonds = Bond.objects.all()
         serializer = BondSerializer(bonds, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single bond"""
+        """Handle GET requests for a single Bond"""
         try:
             bond = Bond.objects.get(pk=pk)
             serializer = BondSerializer(bond, context={"request": request})

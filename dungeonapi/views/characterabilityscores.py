@@ -16,13 +16,13 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
 
 class CharacterAbilityScoreViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Characters"""
+        """Handle GET requests for all Character's Ability Scores"""
         characterabilityscores = CharacterAbilityScore.objects.all()
         serializer = CharacterAbilityScoreSerializer(characterabilityscores, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single Character"""
+        """Handle GET requests for a single Character's Ability Score"""
         try:
             characterabilityscore = CharacterAbilityScore.objects.get(pk=pk)
             serializer = CharacterAbilityScoreSerializer(characterabilityscore, context={"request": request})

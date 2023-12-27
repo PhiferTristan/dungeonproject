@@ -9,13 +9,13 @@ class AbilitySerializer(serializers.ModelSerializer):
 
 class AbilityViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all abilities"""
+        """Handle GET requests for all Abilities"""
         abilities = Ability.objects.all()
         serializer = AbilitySerializer(abilities, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single ability"""
+        """Handle GET requests for a single Ability"""
         try:
             ability = Ability.objects.get(pk=pk)
             serializer = AbilitySerializer(ability, context={"request": request})

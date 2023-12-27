@@ -9,13 +9,13 @@ class FlawSerializer(serializers.ModelSerializer):
 
 class FlawViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all flaws"""
+        """Handle GET requests for all Flaws"""
         flaws = Flaw.objects.all()
         serializer = FlawSerializer(flaws, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single flaw"""
+        """Handle GET requests for a single Flaw"""
         try:
             flaw = Flaw.objects.get(pk=pk)
             serializer = FlawSerializer(flaw, context={"request": request})

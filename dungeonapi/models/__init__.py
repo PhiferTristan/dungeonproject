@@ -17,3 +17,4 @@ from .dndclass import DnDClass
 from .subclass import Subclass
 from .characterabilityscore import CharacterAbilityScore
 from .charactersavingthrow import CharacterSavingThrow
+from .characterskill import CharacterSkill

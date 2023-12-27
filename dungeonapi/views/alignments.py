@@ -9,13 +9,13 @@ class AlignmentSerializer(serializers.ModelSerializer):
 
 class AlignmentViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all alignments"""
+        """Handle GET requests for all Alignments"""
         alignments = Alignment.objects.all()
         serializer = AlignmentSerializer(alignments, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single alignment"""
+        """Handle GET requests for a single Alignment"""
         try:
             alignment = Alignment.objects.get(pk=pk)
             serializer = AlignmentSerializer(alignment, context={'request': request})

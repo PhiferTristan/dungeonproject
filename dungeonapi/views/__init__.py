@@ -17,3 +17,4 @@ from .subclasses import SubclassViewSet
 from .characters import CharacterViewSet
 from .characterabilityscores import CharacterAbilityScoreViewSet
 from .charactersavingthrows import CharacterSavingThrowViewSet
+from .characterskills import CharacterSkillViewSet

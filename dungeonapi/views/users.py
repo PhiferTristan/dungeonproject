@@ -46,7 +46,8 @@ class UserViewSet(viewsets.ViewSet):
                 'valid': True,
                 'token': token.key,
                 'staff': token.user.is_staff,
-                'id': token.user.id
+                'id': token.user.id,
+                'user_type': token.user.user_type
             }
 
             return Response(data, status=status.HTTP_201_CREATED)
@@ -54,7 +55,7 @@ class UserViewSet(viewsets.ViewSet):
 
     @action(detail=False, methods=['post'], url_path='login')
     def login_user(self, request):
-        '''Handles the authentication of a user
+        '''Handles the authentication of a User
 
         Method arguments:
         request -- The full HTTP request object
