@@ -1,0 +1,19 @@
+[
+    {
+        "model": "dungeonapi.character",
+        "pk": 1,
+        "fields": {
+            "player_user": 1,
+            "character_name": "John Doe",
+            "level": 1,
+            "race": 1,
+            "sex": "Male",
+            "alignment": 1,
+            "background": 1,
+            "bio": "Lorem ipsum...",
+            "notes": "Additional notes...",
+            "character_appearance": "Tall and muscular...",
+            "created_on": "2023-01-01"
+        }
+    }
+]

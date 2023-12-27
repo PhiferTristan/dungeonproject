@@ -14,3 +14,5 @@ from .bonds import BondViewSet
 from .personalitytraits import PersonalityTraitViewSet
 from .dndclasses import DnDClassViewSet
 from .subclasses import SubclassViewSet
+from .characters import CharacterViewSet
+from .characterabilityscores import CharacterAbilityScoreViewSet

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet
+from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet, CharacterViewSet, CharacterAbilityScoreViewSet
 from django.conf.urls.static import static
 from .import settings
 
@@ -22,6 +22,8 @@ router.register(r'subclasses', SubclassViewSet, "subclass")
 router.register(r'dungeonmasters', DungeonMasterUserViewSet, "dungeonmaster")
 router.register(r'players', PlayerUserViewSet, "playeruser")
 router.register(r'users', UserViewSet, 'user')
+router.register(r'characters', CharacterViewSet, "character")
+router.register(r'characterabilityscores', CharacterAbilityScoreViewSet, "characterabilityscore")
 
 
 urlpatterns = [

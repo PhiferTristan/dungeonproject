@@ -15,3 +15,4 @@ from .bond import Bond
 from .personalitytrait import PersonalityTrait
 from .dndclass import DnDClass
 from .subclass import Subclass
+from .characterabilityscore import CharacterAbilityScore

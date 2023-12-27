@@ -1,0 +1,52 @@
+[
+    {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "ability": 1,
+            "score_value": 16
+        }
+    },
+    {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 2,
+        "fields": {
+            "character": 1,
+            "ability": 2,
+            "score_value": 15
+        }
+    }, {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 3,
+        "fields": {
+            "character": 1,
+            "ability": 3,
+            "score_value": 14
+        }
+    }, {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 4,
+        "fields": {
+            "character": 1,
+            "ability": 4,
+            "score_value": 13
+        }
+    }, {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 5,
+        "fields": {
+            "character": 1,
+            "ability": 5,
+            "score_value": 12
+        }
+    }, {
+        "model": "dungeonapi.characterabilityscore",
+        "pk": 6,
+        "fields": {
+            "character": 1,
+            "ability": 6,
+            "score_value": 11
+        }
+    }
+]
