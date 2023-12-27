@@ -21,7 +21,7 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
 class CharacterSerializer(serializers.ModelSerializer):
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
-    
+
     class Meta:
         model = Character
         fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws']
