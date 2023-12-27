@@ -122,4 +122,27 @@ class UserViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except CustomUser.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-        
+
+    @action(detail=True, methods=['put'], url_path='update-status')
+    def update_status(self, request, pk=None):
+        """Update LFP or LFG status for a single User"""
+        try:
+            user = CustomUser.objects.get(pk=pk)
+
+            # Assuming you have a 'status' field in your request data
+            new_status = request.data.get('status', False)
+
+            if user.user_type == 'DM':
+                dungeon_master_user = DungeonMasterUser.objects.get(user=user)
+                dungeon_master_user.lfp_status = new_status
+                dungeon_master_user.save()
+            elif user.user_type == 'Player':
+                player_user = PlayerUser.objects.get(user=user)
+                player_user.lfg_status = new_status
+                player_user.save()
+
+            serializer = UserSerializer(user, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except CustomUser.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)    
