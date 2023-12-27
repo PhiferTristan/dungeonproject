@@ -9,13 +9,13 @@ class SavingThrowSerializer(serializers.ModelSerializer):
 
 class SavingThrowViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all saving throws"""
+        """Handle GET requests for all Saving Throws"""
         saving_throws = SavingThrow.objects.all()
         serializer = SavingThrowSerializer(saving_throws, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single saving throw"""
+        """Handle GET requests for a single Saving Throw"""
         try:
             saving_throw = SavingThrow.objects.get(pk=pk)
             serializer = SavingThrowSerializer(saving_throw, context={"request": request})

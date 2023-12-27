@@ -1,0 +1,147 @@
+[
+    {
+        "model": "dungeonapi.characterskill",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "skill": 1,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 2,
+        "fields": {
+            "character": 1,
+            "skill": 2,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 3,
+        "fields": {
+            "character": 1,
+            "skill": 3,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 4,
+        "fields": {
+            "character": 1,
+            "skill": 4,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 5,
+        "fields": {
+            "character": 1,
+            "skill": 5,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 6,
+        "fields": {
+            "character": 1,
+            "skill": 6,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 7,
+        "fields": {
+            "character": 1,
+            "skill": 7,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 8,
+        "fields": {
+            "character": 1,
+            "skill": 8,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 9,
+        "fields": {
+            "character": 1,
+            "skill": 9,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 10,
+        "fields": {
+            "character": 1,
+            "skill": 10,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 11,
+        "fields": {
+            "character": 1,
+            "skill": 11,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 12,
+        "fields": {
+            "character": 1,
+            "skill": 12,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 13,
+        "fields": {
+            "character": 1,
+            "skill": 13,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 14,
+        "fields": {
+            "character": 1,
+            "skill": 14,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 15,
+        "fields": {
+            "character": 1,
+            "skill": 15,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 16,
+        "fields": {
+            "character": 1,
+            "skill": 16,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 17,
+        "fields": {
+            "character": 1,
+            "skill": 17,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.characterskill",
+        "pk": 18,
+        "fields": {
+            "character": 1,
+            "skill": 18,
+            "proficient": false
+        }
+    }
+]

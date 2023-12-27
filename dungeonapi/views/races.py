@@ -8,7 +8,7 @@ class RaceSerializer(serializers.ModelSerializer):
         fields = ['id', 'label', 'description']
 
 class RaceViewSet(viewsets.ViewSet):
-    """Handle GET requests for all races
+    """Handle GET requests for all Races
     
     Returns:
         Response -- Multiple JSON serialized objects
@@ -19,7 +19,7 @@ class RaceViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single race
+        """Handle GET requests for a single Race
         
         Returns:
             Response -- JSON serialized object

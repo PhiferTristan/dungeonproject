@@ -9,13 +9,13 @@ class IdealSerializer(serializers.ModelSerializer):
 
 class IdealViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all ideals"""
+        """Handle GET requests for all Ideals"""
         ideals = Ideal.objects.all()
         serializer = IdealSerializer(ideals, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single ideal"""
+        """Handle GET requests for a single Ideal"""
         try:
             ideal = Ideal.objects.get(pk=pk)
             serializer = IdealSerializer(ideal, context={"request": request})

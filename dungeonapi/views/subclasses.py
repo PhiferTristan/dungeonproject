@@ -9,13 +9,13 @@ class SubclassSerializer(serializers.ModelSerializer):
 
 class SubclassViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all subclasses"""
+        """Handle GET requests for all Subclasses"""
         subclasses = Subclass.objects.all()
         serializer = SubclassSerializer(subclasses, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single subclass"""
+        """Handle GET requests for a single Subclass"""
         try:
             subclass = Subclass.objects.get(pk=pk)
             serializer = SubclassSerializer(subclass, context={"request": request})

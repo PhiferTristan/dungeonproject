@@ -1,14 +1,6 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, Ability, CharacterAbilityScore, CharacterSavingThrow
-
-class CharacterSavingThrowSerializer(serializers.ModelSerializer):
-    saving_throw_label = serializers.CharField(source='saving_throw.label', read_only=True)
-    saving_throw_description =serializers.CharField(source='saving_throw.description', read_only=True)
-
-    class Meta:
-        model = CharacterSavingThrow
-        fields = ['id', 'character_id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
@@ -18,13 +10,30 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
         model = CharacterAbilityScore
         fields = ['id', 'character_id', 'ability_id', 'score_value', 'ability_label', 'ability_description']
 
+class CharacterSavingThrowSerializer(serializers.ModelSerializer):
+    saving_throw_label = serializers.CharField(source='saving_throw.label', read_only=True)
+    saving_throw_description =serializers.CharField(source='saving_throw.description', read_only=True)
+
+    class Meta:
+        model = CharacterSavingThrow
+        fields = ['id', 'character_id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
+
+class CharacterSkillSerializer(serializers.ModelSerializer):
+    skill_label = serializers.CharField(source='skill.label', read_only=True)
+    skill_description = serializers.CharField(source='skill.description', read_only=True)
+
+    class Meta:
+        model = CharacterSkill
+        fields = ['id', 'character_id', 'skill_id', 'proficient', 'skill_label', 'skill_description']
+
 class CharacterSerializer(serializers.ModelSerializer):
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
+    character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
 
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws']
+        fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
 
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):

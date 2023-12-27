@@ -16,13 +16,13 @@ class CharacterSavingThrowSerializer(serializers.ModelSerializer):
 
 class CharacterSavingThrowViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Characters"""
+        """Handle GET requests for all Character's Saving Throws"""
         charactersavingthrows = CharacterSavingThrow.objects.all()
         serializer = CharacterSavingThrowSerializer(charactersavingthrows, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        """Handle GET requests for a single Character"""
+        """Handle GET requests for a single Character's Saving Throw"""
         try:
             charactersavingthrow = CharacterSavingThrow.objects.get(pk=pk)
             serializer = CharacterSavingThrowSerializer(charactersavingthrow, context={"request": request})
