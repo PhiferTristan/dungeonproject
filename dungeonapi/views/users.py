@@ -8,11 +8,35 @@ from django.contrib.auth.models import User
 from dungeonapi.models import PlayerUser, DungeonMasterUser
 from dungeonapi.models import CustomUser
 
+class DungeonMasterUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DungeonMasterUser
+        fields = ['lfp_status']
+
+class PlayerUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PlayerUser
+        fields = ['lfg_status']
+
 class UserSerializer(serializers.ModelSerializer):
+    dungeon_master_user = DungeonMasterUserSerializer(read_only=True)
+    player_user = PlayerUserSerializer(read_only=True)
+
     class Meta:
         model = CustomUser
-        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type', 'bio', 'discord_username', 'profile_image_url')
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type', 'bio', 'discord_username', 'profile_image_url', 'dungeon_master_user', 'player_user')
         extra_kwargs = {'password': {'write_only': True}}
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        user_type = data.get('user_type')
+
+        if user_type == 'DM':
+            data.pop('player_user')
+        elif user_type == 'Player':
+            data.pop('dungeon_master_user')
+
+        return data
 
 class UserViewSet(viewsets.ViewSet):
     queryset = CustomUser.objects.all()
