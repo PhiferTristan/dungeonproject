@@ -22,3 +22,5 @@ python3 manage.py loaddata bonds
 python3 manage.py loaddata personalitytraits
 python3 manage.py loaddata dndclasses
 python3 manage.py loaddata subclasses
+python3 manage.py loaddata characters
+python3 manage.py loaddata characterabilityscores
