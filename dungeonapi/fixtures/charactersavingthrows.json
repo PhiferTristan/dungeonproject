@@ -1,0 +1,52 @@
+[
+    {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "saving_throw": 1,
+            "proficient": true
+        }
+    },
+    {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 2,
+        "fields": {
+            "character": 1,
+            "saving_throw": 2,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 3,
+        "fields": {
+            "character": 1,
+            "saving_throw": 3,
+            "proficient": true
+        }
+    }, {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 4,
+        "fields": {
+            "character": 1,
+            "saving_throw": 4,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 5,
+        "fields": {
+            "character": 1,
+            "saving_throw": 5,
+            "proficient": false
+        }
+    }, {
+        "model": "dungeonapi.charactersavingthrow",
+        "pk": 6,
+        "fields": {
+            "character": 1,
+            "saving_throw": 6,
+            "proficient": false
+        }
+    }
+]

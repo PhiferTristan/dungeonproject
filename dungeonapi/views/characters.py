@@ -1,6 +1,14 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, Ability, CharacterAbilityScore
+from dungeonapi.models import Character, Ability, CharacterAbilityScore, CharacterSavingThrow
+
+class CharacterSavingThrowSerializer(serializers.ModelSerializer):
+    saving_throw_label = serializers.CharField(source='saving_throw.label', read_only=True)
+    saving_throw_description =serializers.CharField(source='saving_throw.description', read_only=True)
+
+    class Meta:
+        model = CharacterSavingThrow
+        fields = ['id', 'character_id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
@@ -12,10 +20,11 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
 
 class CharacterSerializer(serializers.ModelSerializer):
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
-
+    character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
+    
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities']
+        fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws']
 
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):

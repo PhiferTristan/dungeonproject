@@ -14,5 +14,6 @@ class Character(models.Model):
     character_appearance = models.CharField(max_length=755)
     created_on = models.DateField(auto_now_add=True)
     character_abilities = models.ManyToManyField("Ability", through='CharacterAbilityScore')
+    character_saving_throws = models.ManyToManyField("SavingThrow", through='CharacterSavingThrow')
     # skills_table = models.ForeignKey("Skills", on_delete=models.CASCADE)
     # saving_throws_table = models.ForeignKey("SavingThrows", on_delete=models.CASCADE)

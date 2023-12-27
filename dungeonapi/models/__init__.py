@@ -16,3 +16,4 @@ from .personalitytrait import PersonalityTrait
 from .dndclass import DnDClass
 from .subclass import Subclass
 from .characterabilityscore import CharacterAbilityScore
+from .charactersavingthrow import CharacterSavingThrow

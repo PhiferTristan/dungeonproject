@@ -16,3 +16,4 @@ from .dndclasses import DnDClassViewSet
 from .subclasses import SubclassViewSet
 from .characters import CharacterViewSet
 from .characterabilityscores import CharacterAbilityScoreViewSet
+from .charactersavingthrows import CharacterSavingThrowViewSet
