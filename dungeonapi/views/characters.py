@@ -8,7 +8,7 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CharacterAbilityScore
-        fields = ['id', 'character_id', 'ability_id', 'score_value', 'ability_label', 'ability_description']
+        fields = ['id', 'ability_id', 'score_value', 'ability_label', 'ability_description']
 
 class CharacterSavingThrowSerializer(serializers.ModelSerializer):
     saving_throw_label = serializers.CharField(source='saving_throw.label', read_only=True)
@@ -16,7 +16,7 @@ class CharacterSavingThrowSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CharacterSavingThrow
-        fields = ['id', 'character_id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
+        fields = ['id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
 
 class CharacterSkillSerializer(serializers.ModelSerializer):
     skill_label = serializers.CharField(source='skill.label', read_only=True)
@@ -24,16 +24,17 @@ class CharacterSkillSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CharacterSkill
-        fields = ['id', 'character_id', 'skill_id', 'proficient', 'skill_label', 'skill_description']
+        fields = ['id', 'skill_id', 'proficient', 'skill_label', 'skill_description']
 
 class CharacterSerializer(serializers.ModelSerializer):
+    user_username = serializers.CharField(source='player_user.user.username', read_only=True)
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
     character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
 
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+        fields = ['id', 'player_user', 'user_username', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
 
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):
