@@ -2,8 +2,12 @@ from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import serializers
-from dungeonapi.models import PlayerUser
-from dungeonapi.models import CustomUser
+from dungeonapi.models import PlayerUser, CustomUser, Character
+
+class CharacterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Character
+        fields = "__all__"
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,11 +15,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'username', 'email', 'user_type')
 
 class PlayerUserSerializer(serializers.ModelSerializer):
+    characters = CharacterSerializer(many=True)
     user = CustomUserSerializer()
 
     class Meta:
         model = PlayerUser
-        fields = ('id', 'lfg_status', 'user')
+        fields = ('id', 'lfg_status', 'user', 'characters')
 
 class PlayerUserViewSet(viewsets.ViewSet):
     def list(self, request):
