@@ -25,7 +25,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'user_type', 'bio', 'discord_username', 'profile_image_url', 'dungeon_master_user', 'player_user')
-        extra_kwargs = {'password': {'write_only': True}}
+        extra_kwargs = {
+            'password': {'write_only': True},
+            }
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -145,4 +147,25 @@ class UserViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         except CustomUser.DoesNotExist as ex:
-            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)    
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=True, methods=['put'], url_path='update')
+    def update_profile(self, request, pk=None):
+        try:
+            user = CustomUser.objects.get(pk=pk)
+            serializer = UserSerializer(user, data=request.data, partial=True)
+            if serializer.is_valid():
+                user.first_name=serializer.validated_data['first_name']
+                user.last_name=serializer.validated_data['last_name']
+                user.email=serializer.validated_data['email']
+                user.bio=serializer.validated_data.get('bio', '')
+                user.discord_username=serializer.validated_data.get('discord_username', '')
+                user.profile_image_url=serializer.validated_data.get('profile_image_url', '')
+                user.save()
+
+                serializer = UserSerializer(user, context={"request": request})
+                return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except CustomUser.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        
