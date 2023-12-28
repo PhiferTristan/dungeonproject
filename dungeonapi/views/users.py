@@ -168,4 +168,16 @@ class UserViewSet(viewsets.ViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except CustomUser.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=True, methods=['delete'], url_path='delete')
+    def destroy_user(self, request, pk=None):
+        try:
+            user = CustomUser.objects.get(pk=pk)
+            user.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except CustomUser.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
