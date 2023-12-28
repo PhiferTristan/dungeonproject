@@ -11,12 +11,12 @@ from dungeonapi.models import CustomUser
 class DungeonMasterUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = DungeonMasterUser
-        fields = ['lfp_status']
+        fields = ['id', 'lfp_status']
 
 class PlayerUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlayerUser
-        fields = ['lfg_status']
+        fields = ['id', 'lfg_status']
 
 class UserSerializer(serializers.ModelSerializer):
     dungeon_master_user = DungeonMasterUserSerializer(read_only=True)

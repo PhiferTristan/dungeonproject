@@ -16,7 +16,7 @@ class DungeonMasterUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DungeonMasterUser
-        fields = ('id', 'lfg_status', 'user')
+        fields = ('id', 'lfp_status', 'user')
 
 class DungeonMasterUserViewSet(viewsets.ViewSet):
     def list(self, request):
