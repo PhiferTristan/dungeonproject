@@ -15,5 +15,21 @@
             "character_appearance": "Tall and muscular...",
             "created_on": "2023-01-01"
         }
+    }, {
+        "model": "dungeonapi.character",
+        "pk": 2,
+        "fields": {
+            "player_user": 2,
+            "character_name": "Francis",
+            "level": 10,
+            "race": 2,
+            "sex": "Female",
+            "alignment": 3,
+            "background": 4,
+            "bio": "Lorem ipsum...",
+            "notes": "Additional notes...",
+            "character_appearance": "Tall and muscular...",
+            "created_on": "2023-01-01"
+        }
     }
 ]

@@ -45,9 +45,25 @@ class CharacterSerializer(serializers.ModelSerializer):
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):
         """Handle GET requests for all Characters"""
-        characters = Character.objects.all()
+        # Retrieve the player_id from the request query parameters
+        player_id = request.query_params.get('player_id', None)
+
+        # endpoint /characters/?player_id=your_player_id
+        if player_id:
+            # If player_id is provided, filter characters based on it
+            characters = Character.objects.filter(player_user=player_id)
+        else:
+            # If no player_id is provided, get all characters
+            characters = Character.objects.all()
+
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data)
+    
+    # def list(self, request):
+    #     """Handle GET requests for all Characters"""
+    #     characters = Character.objects.all()
+    #     serializer = CharacterSerializer(characters, many=True)
+    #     return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Character"""

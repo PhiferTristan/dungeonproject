@@ -38,5 +38,8 @@ urlpatterns = [
     path('login', UserViewSet.as_view({"post": "login_user"}), name='login'),
     path('register', UserViewSet.as_view({"post": "register_account"}), name='register'),
     path('users/<pk>/update', UserViewSet.as_view({"put": "update_profile"}), name='update_profile'),
-    path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user')
+    path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user'),
+    path('characters/', CharacterViewSet.as_view({'get': 'list'}), name='character-list'),
+    path('characters/<int:pk>/', CharacterViewSet.as_view({'get': 'retrieve'}), name='character-detail'),
+
 ]
