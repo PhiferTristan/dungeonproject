@@ -21,15 +21,15 @@ class DungeonMasterUserSerializer(serializers.ModelSerializer):
 class DungeonMasterUserViewSet(viewsets.ViewSet):
     def list(self, request):
         """Handle GET requests for all Dungeon Master Users"""
-        dungeonmasterusers = DungeonMasterUser.objects.all()
-        serializer = DungeonMasterUserSerializer(dungeonmasterusers, many=True)
+        dungeon_master_users = DungeonMasterUser.objects.all()
+        serializer = DungeonMasterUserSerializer(dungeon_master_users, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Dungeon Master User"""
         try:
-            dungeonmasteruser = DungeonMasterUser.objects.get(pk=pk)
-            serializer = DungeonMasterUserSerializer(dungeonmasteruser, context={"request": request})
+            dungeon_master_user = DungeonMasterUser.objects.get(pk=pk)
+            serializer = DungeonMasterUserSerializer(dungeon_master_user, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except DungeonMasterUser.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)

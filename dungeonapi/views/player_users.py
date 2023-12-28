@@ -25,15 +25,15 @@ class PlayerUserSerializer(serializers.ModelSerializer):
 class PlayerUserViewSet(viewsets.ViewSet):
     def list(self, request):
         """Handle GET requests for all Player Users"""
-        playerusers = PlayerUser.objects.all()
-        serializer = PlayerUserSerializer(playerusers, many=True)
+        player_users = PlayerUser.objects.all()
+        serializer = PlayerUserSerializer(player_users, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Player User"""
         try:
-            playeruser = PlayerUser.objects.get(pk=pk)
-            serializer = PlayerUserSerializer(playeruser, context={"request": request})
+            player_user = PlayerUser.objects.get(pk=pk)
+            serializer = PlayerUserSerializer(player_user, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except PlayerUser.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)

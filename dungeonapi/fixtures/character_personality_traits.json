@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterpersonalitytrait",
+        "pk": 1,
+        "fields": {
+            "character_background": 1,
+            "personality_trait": 1
+        }
+    }
+]

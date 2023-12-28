@@ -1,6 +1,11 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background
+
+class BackgroundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Background
+        fields = "__all__"
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
@@ -27,6 +32,7 @@ class CharacterSkillSerializer(serializers.ModelSerializer):
         fields = ['id', 'skill_id', 'proficient', 'skill_label']
 
 class CharacterSerializer(serializers.ModelSerializer):
+    background = BackgroundSerializer(read_only=True)
     user_username = serializers.CharField(source='player_user.user.username', read_only=True)
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
