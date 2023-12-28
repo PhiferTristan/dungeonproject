@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterbond",
+        "pk": 1,
+        "fields": {
+            "character_background": 1,
+            "bond": 1
+        }
+    }
+]

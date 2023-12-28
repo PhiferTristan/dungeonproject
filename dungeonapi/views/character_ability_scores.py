@@ -17,15 +17,15 @@ class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
 class CharacterAbilityScoreViewSet(viewsets.ViewSet):
     def list(self, request):
         """Handle GET requests for all Character's Ability Scores"""
-        characterabilityscores = CharacterAbilityScore.objects.all()
-        serializer = CharacterAbilityScoreSerializer(characterabilityscores, many=True)
+        character_ability_scores = CharacterAbilityScore.objects.all()
+        serializer = CharacterAbilityScoreSerializer(character_ability_scores, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Character's Ability Score"""
         try:
-            characterabilityscore = CharacterAbilityScore.objects.get(pk=pk)
-            serializer = CharacterAbilityScoreSerializer(characterabilityscore, context={"request": request})
+            character_ability_score = CharacterAbilityScore.objects.get(pk=pk)
+            serializer = CharacterAbilityScoreSerializer(character_ability_score, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Character.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)

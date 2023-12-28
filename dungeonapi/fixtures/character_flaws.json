@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterflaw",
+        "pk": 1,
+        "fields": {
+            "character_background": 1,
+            "flaw": 1
+        }
+    }
+]

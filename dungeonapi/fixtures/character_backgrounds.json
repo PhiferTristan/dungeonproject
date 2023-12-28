@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterbackground",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "background": 1
+        }
+    }
+]

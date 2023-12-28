@@ -16,16 +16,16 @@ class CharacterSkillSerializer(serializers.ModelSerializer):
 
 class CharacterSkillViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Character's Skills"""
-        characterskills = CharacterSkill.objects.all()
-        serializer = CharacterSkillSerializer(characterskills, many=True)
+        """Handle GET requests for all Characters' Skills"""
+        character_skills = CharacterSkill.objects.all()
+        serializer = CharacterSkillSerializer(character_skills, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Character's Skill"""
         try:
-            characterskill = CharacterSkill.objects.get(pk=pk)
-            serializer = CharacterSkillSerializer(characterskill, context={"request": request})
+            character_skill = CharacterSkill.objects.get(pk=pk)
+            serializer = CharacterSkillSerializer(character_skill, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Character.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
