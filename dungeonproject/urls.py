@@ -31,5 +31,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('login', UserViewSet.as_view({"post": "login_user"}), name='login'),
-    path('register', UserViewSet.as_view({"post": "register_account"}), name='register')
+    path('register', UserViewSet.as_view({"post": "register_account"}), name='register'),
+    path('users/<pk>/update', UserViewSet.as_view({"put": "update_profile"}), name='update_profile'),
+    path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user')
 ]

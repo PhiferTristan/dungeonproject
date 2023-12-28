@@ -3,7 +3,7 @@
         "model": "dungeonapi.dungeonmasteruser",
         "pk": 1,
         "fields": {
-            "lfg_status": "True",
+            "lfp_status": "True",
             "user": 1
         }
     }
