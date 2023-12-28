@@ -104,6 +104,19 @@ class UserViewSet(viewsets.ViewSet):
                 'id': token.user.id,
                 'user_type': token.user.user_type
             }
+
+            # Include additional details based on user type
+            if token.user.user_type == 'Player' and hasattr(token.user, 'player_user'):
+                data['player_user'] = {
+                    'id': token.user.player_user.id,
+                    'lfg_status': token.user.player_user.lfg_status
+                }
+            elif token.user.user_type == 'DM' and hasattr(token.user, 'dungeon_master_user'):
+                data['dungeon_master_user'] = {
+                    'id': token.user.dungeon_master_user.id,
+                    'lfp_status': token.user.dungeon_master_user.lfp_status
+                }
+
             return Response(data)
         else:
             # Bad login details were provided. So we can't log the user in.
