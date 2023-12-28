@@ -4,27 +4,27 @@ from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingT
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
-    ability_description = serializers.CharField(source='ability.description', read_only=True)
+    # ability_description = serializers.CharField(source='ability.description', read_only=True)
 
     class Meta:
         model = CharacterAbilityScore
-        fields = ['id', 'ability_id', 'score_value', 'ability_label', 'ability_description']
+        fields = ['id', 'ability_id', 'score_value', 'ability_label']
 
 class CharacterSavingThrowSerializer(serializers.ModelSerializer):
     saving_throw_label = serializers.CharField(source='saving_throw.label', read_only=True)
-    saving_throw_description =serializers.CharField(source='saving_throw.description', read_only=True)
+    # saving_throw_description =serializers.CharField(source='saving_throw.description', read_only=True)
 
     class Meta:
         model = CharacterSavingThrow
-        fields = ['id', 'saving_throw_id', 'proficient', 'saving_throw_label', 'saving_throw_description']
+        fields = ['id', 'saving_throw_id', 'proficient', 'saving_throw_label']
 
 class CharacterSkillSerializer(serializers.ModelSerializer):
     skill_label = serializers.CharField(source='skill.label', read_only=True)
-    skill_description = serializers.CharField(source='skill.description', read_only=True)
+    # skill_description = serializers.CharField(source='skill.description', read_only=True)
 
     class Meta:
         model = CharacterSkill
-        fields = ['id', 'skill_id', 'proficient', 'skill_label', 'skill_description']
+        fields = ['id', 'skill_id', 'proficient', 'skill_label']
 
 class CharacterSerializer(serializers.ModelSerializer):
     user_username = serializers.CharField(source='player_user.user.username', read_only=True)
