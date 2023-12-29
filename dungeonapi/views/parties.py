@@ -114,32 +114,6 @@ class PartyViewSet(viewsets.ViewSet):
         except Party.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
-    @action(detail=True, methods=['delete'])
-    def remove_character(self, request, pk=None, character_id=None):
-        """Handle DELETE requests to remove a Character from a Party"""
-        # url pattern: /parties/{party_id}/remove_player/{character_id}/
-        try:
-            party = Party.objects.get(pk=pk)
-            character_id = self.kwargs.get('character_id')
-            print(f'Party: {party}, Character Id: {character_id}')
-
-            # Ensure that the User making the request is the Dungeon Master
-            if party.dungeon_master.user.id == request.user.id:            
-                # Find the Character in the Party's Characters and remove it
-                character = party.characters.filter(id=character_id).first()
-                if character:
-                    party.characters.remove(character)
-                    party.save()
-                    return Response({"message": f"Character removed from party {pk}"}, status=status.HTTP_204_NO_CONTENT)
-                else:
-                    return Response({"message": "Character not found in party"}, status=status.HTTP_400_BAD_REQUEST)
-            else:
-                return Response({"message": "You are not the DM of this party."}, status=status.HTTP_403_FORBIDDEN)
-        except Party.DoesNotExist as ex:
-            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as ex:
-            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
     def create(self, request):
         """Handle POST operations
 
@@ -171,3 +145,53 @@ class PartyViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response(ex, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=True, methods=['delete'])
+    def remove_character(self, request, pk=None, character_id=None):
+        """Handle DELETE requests to remove a Character from a Party"""
+        # url pattern: /parties/{party_id}/remove_player/{character_id}/
+        try:
+            party = Party.objects.get(pk=pk)
+            character_id = self.kwargs.get('character_id')
+            print(f'Party: {party}, Character Id: {character_id}')
+
+            # Ensure that the User making the request is the Dungeon Master
+            if party.dungeon_master.user.id == request.user.id:            
+                # Find the Character in the Party's Characters and remove it
+                character = party.characters.filter(id=character_id).first()
+                if character:
+                    party.characters.remove(character)
+                    party.save()
+                    return Response({"message": f"Character removed from party {pk}"}, status=status.HTTP_204_NO_CONTENT)
+                else:
+                    return Response({"message": "Character not found in party"}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({"message": "You are not the DM of this party."}, status=status.HTTP_403_FORBIDDEN)
+        except Party.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    @action(detail=True, methods=['delete'])
+    def leave_party(self, request, pk=None, character_id=None):
+        """Handle DELETE requests for a Player User's Character to leave a Party"""
+        try:
+            party = Party.objects.get(pk=pk)
+            player_user = PlayerUser.objects.get(user=request.user)
+
+            # Check if the Player User is a member of the Party
+            if party.characters.filter(id=character_id, player_user=player_user).exists():
+                # Remove the Character from the Party
+                character = party.characters.get(id=character_id, player_user=player_user)
+                party.characters.remove(character)
+                party.save()
+                return Response({"message": "Player's character has left the party"}, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({"message": "Player's character is not a member of this party or character not found"}, status=status.HTTP_400_BAD_REQUEST)
+
+        except Party.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except PlayerUser.DoesNotExist as ex:
+            return Response({"message": "User is not a player user"}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
