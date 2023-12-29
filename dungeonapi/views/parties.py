@@ -139,3 +139,35 @@ class PartyViewSet(viewsets.ViewSet):
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized post instance
+        """
+
+        try:
+            dungeon_master = DungeonMasterUser.objects.get(user=request.user.id)
+        except DungeonMasterUser.DoesNotExist:
+            return Response({"message": "Only Dungeon Masters can create parties."}, status=status.HTTP_403_FORBIDDEN)
+
+        # dungeon_master = DungeonMasterUser.objects.get(user=request.user.id)
+        name = request.data.get("name")
+        description = request.data.get("description")
+        lfp_status = request.data.get("lfp_status")
+
+        party = Party.objects.create(
+            dungeon_master = dungeon_master,
+            name = name,
+            description = description,
+            lfp_status = lfp_status,
+        )
+
+        party.created_on = party.created_on.strftime("%m-%d-%Y")
+
+        try:
+            serializer = PartySerializer(party, context={"request": request} )
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response(ex, status=status.HTTP_400_BAD_REQUEST)
