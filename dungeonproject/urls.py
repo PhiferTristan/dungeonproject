@@ -42,5 +42,6 @@ urlpatterns = [
     path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user'),
     path('characters/', CharacterViewSet.as_view({'get': 'list'}), name='character-list'),
     path('characters/<int:pk>/', CharacterViewSet.as_view({'get': 'retrieve'}), name='character-detail'),
-
+    path('parties/', PartyViewSet.as_view({'get': 'list'}), name='party-list'),
+    path('parties/<int:pk>/remove_character/<int:character_id>/', PartyViewSet.as_view({'delete': 'remove_character'}), name='remove_character')
 ]
