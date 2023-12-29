@@ -58,7 +58,7 @@ class CharacterViewSet(viewsets.ViewSet):
 
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data)
-    
+
     # def list(self, request):
     #     """Handle GET requests for all Characters"""
     #     characters = Character.objects.all()

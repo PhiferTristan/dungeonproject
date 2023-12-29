@@ -76,6 +76,16 @@ class UserViewSet(viewsets.ViewSet):
                 'user_type': token.user.user_type
             }
 
+            # Include additional details based on user type
+            if token.user.user_type == 'Player' and hasattr(token.user, 'player_user'):
+                data['player_user'] = {
+                    'id': token.user.player_user.id,
+                }
+            elif token.user.user_type == 'DM' and hasattr(token.user, 'dungeon_master_user'):
+                data['dungeon_master_user'] = {
+                    'id': token.user.dungeon_master_user.id,
+                }
+
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -109,12 +119,10 @@ class UserViewSet(viewsets.ViewSet):
             if token.user.user_type == 'Player' and hasattr(token.user, 'player_user'):
                 data['player_user'] = {
                     'id': token.user.player_user.id,
-                    'lfg_status': token.user.player_user.lfg_status
                 }
             elif token.user.user_type == 'DM' and hasattr(token.user, 'dungeon_master_user'):
                 data['dungeon_master_user'] = {
                     'id': token.user.dungeon_master_user.id,
-                    'lfp_status': token.user.dungeon_master_user.lfp_status
                 }
 
             return Response(data)

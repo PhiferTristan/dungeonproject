@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet, CharacterViewSet, CharacterAbilityScoreViewSet, CharacterSavingThrowViewSet, CharacterSkillViewSet, CharacterBackgroundViewSet, CharacterFlawViewSet, CharacterIdealViewSet, CharacterBondViewSet, CharacterPersonalityTraitViewSet
+from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet, CharacterViewSet, CharacterAbilityScoreViewSet, CharacterSavingThrowViewSet, CharacterSkillViewSet, CharacterBackgroundViewSet, CharacterFlawViewSet, CharacterIdealViewSet, CharacterBondViewSet, CharacterPersonalityTraitViewSet, PartyViewSet
 from django.conf.urls.static import static
 from .import settings
 
@@ -31,6 +31,7 @@ router.register(r'character_flaws', CharacterFlawViewSet, "character_flaw")
 router.register(r'character_ideals', CharacterIdealViewSet, "character_ideal")
 router.register(r'character_bonds', CharacterBondViewSet, "character_bond")
 router.register(r'character_personality_traits', CharacterPersonalityTraitViewSet, "character_personality_trait")
+router.register(r'parties', PartyViewSet, "party")
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -41,5 +42,6 @@ urlpatterns = [
     path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user'),
     path('characters/', CharacterViewSet.as_view({'get': 'list'}), name='character-list'),
     path('characters/<int:pk>/', CharacterViewSet.as_view({'get': 'retrieve'}), name='character-detail'),
-
+    path('parties/', PartyViewSet.as_view({'get': 'list'}), name='party-list'),
+    path('parties/<int:pk>/remove_character/<int:character_id>/', PartyViewSet.as_view({'delete': 'remove_character'}), name='remove_character')
 ]

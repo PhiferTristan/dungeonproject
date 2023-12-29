@@ -17,8 +17,8 @@ class LanguageViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Language"""
         try:
-            background = Language.objects.get(pk=pk)
-            serializer = LanguageSerializer(background, context={"request": request})
+            language = Language.objects.get(pk=pk)
+            serializer = LanguageSerializer(language, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Language.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)

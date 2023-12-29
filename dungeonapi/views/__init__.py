@@ -23,3 +23,4 @@ from .character_flaws import CharacterFlawViewSet
 from .character_ideals import CharacterIdealViewSet
 from .character_bonds import CharacterBondViewSet
 from .character_personality_traits import CharacterPersonalityTraitViewSet
+from .parties import PartyViewSet
