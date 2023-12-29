@@ -31,3 +31,4 @@ python3 manage.py loaddata character_flaws
 python3 manage.py loaddata character_ideals
 python3 manage.py loaddata character_bonds
 python3 manage.py loaddata character_personality_traits
+python3 manage.py loaddata parties

@@ -23,3 +23,4 @@ from .character_flaw import CharacterFlaw
 from .character_ideal import CharacterIdeal
 from .character_bond import CharacterBond
 from .character_personality_trait import CharacterPersonalityTrait
+from .party import Party

@@ -16,3 +16,5 @@ class Character(models.Model):
     character_abilities = models.ManyToManyField("Ability", through='CharacterAbilityScore')
     character_saving_throws = models.ManyToManyField("SavingThrow", through='CharacterSavingThrow')
     character_skills = models.ManyToManyField("Skill", through='CharacterSkill')
+    current_party = models.ForeignKey("Party", null=True, blank=True, on_delete=models.SET_NULL)
+    
