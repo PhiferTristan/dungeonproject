@@ -1,6 +1,16 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability
+
+class RaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Race
+        fields = ['label']
+
+class AlignmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Alignment
+        fields = ['label']
 
 class BackgroundSerializer(serializers.ModelSerializer):
     class Meta:
@@ -39,10 +49,11 @@ class CharacterSerializer(serializers.ModelSerializer):
     character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
     character_bond = serializers.SerializerMethodField()
     dnd_class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
-
+    race_label = RaceSerializer(source='race', read_only=True)
+    alignment_label = AlignmentSerializer(source='alignment', read_only=True)
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'user_username', 'character_bond','dnd_class_label', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+        fields = ['id', 'player_user', 'user_username', 'character_bond','dnd_class_label', 'character_name', 'level', 'race_label', 'sex', 'alignment_label', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
 
     def get_character_bond(self, obj):
         character_background = obj.get_character_background()
@@ -191,6 +202,17 @@ class CharacterViewSet(viewsets.ViewSet):
             character_bond = CharacterBond.objects.create(
                 bond=bond,
                 character_background=character_background  # You might need to adjust this based on your data model
+            )
+
+        # Extract ability scores from request data
+        ability_scores = request.data.get("ability_scores", {})
+
+        # Create CharacterAbilityScore instances for each ability
+        for ability_id, score_value in ability_scores.items():
+            CharacterAbilityScore.objects.create(
+                character=character,
+                ability_id=ability_id,
+                score_value=score_value
             )
 
         character.created_on = character.created_on.strftime("%m-%d-%Y")
