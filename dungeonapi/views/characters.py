@@ -59,6 +59,17 @@ class CharacterViewSet(viewsets.ViewSet):
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data)
 
+    def list_for_player_user(self, request, player_id=None):
+        """Handle GET requests for all Characters belonging to a player"""
+        try:
+            characters = Character.objects.filter(player_user=player_id)
+            serializer = CharacterSerializer(characters, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Character.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     # def list(self, request):
     #     """Handle GET requests for all Characters"""
     #     characters = Character.objects.all()
