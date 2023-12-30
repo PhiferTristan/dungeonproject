@@ -1,18 +1,11 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterDnDClass
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterDnDClass, PlayerUser, Race, Alignment
 
 class BackgroundSerializer(serializers.ModelSerializer):
     class Meta:
         model = Background
         fields = "__all__"
-
-# class CharacterDnDClassSerializer(serializers.ModelSerializer):
-#     dnd_class_label = serializers.CharField(source='dnd_class.label', read_only=True)
-
-#     class Meta:
-#         model = CharacterDnDClass
-#         fields = ['id', 'dnd_class_label']
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
@@ -104,4 +97,69 @@ class CharacterViewSet(viewsets.ViewSet):
 
         except Exception as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
- 
+
+    def create(self, request):
+        """Handle POST operations for creating a new Character
+
+        Returns:
+            Response -- JSON serialized character instance
+        """
+
+        # Check if the user is a PlayerUser
+        try:
+            player_user = PlayerUser.objects.get(user=request.user.id)
+        except PlayerUser.DoesNotExist:
+            return Response({"message": "Only Players can create characters."}, status=status.HTTP_403_FORBIDDEN)
+
+        # Extract data from the request
+        character_name = request.data.get("character_name")
+        level = request.data.get("level")
+        race_id = request.data.get("race_id")
+        sex = request.data.get("sex")
+        alignment_id = request.data.get("alignment_id")
+        background_id = request.data.get("background_id")
+        bio = request.data.get("bio", "")
+        character_appearance = request.data.get("character_appearance", "")
+        notes = request.data.get("notes", "")
+
+        # Fetch the Race instance based on race_id
+        try:
+            race = Race.objects.get(pk=race_id)
+        except Race.DoesNotExist:
+            return Response({"message": f"Race with ID {race_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Fetch the Alignment instance based on alignment_id
+        try:
+            alignment = Alignment.objects.get(pk=alignment_id)
+        except Alignment.DoesNotExist:
+            return Response({"message": f"Alignment with ID {alignment_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Fetch the Background instance based on background_id
+        try:
+            background = Background.objects.get(pk=background_id)
+        except Background.DoesNotExist:
+            return Response({"message": f"Background with ID {background_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+
+        # Create a new character
+        character = Character.objects.create(
+            player_user=player_user,
+            character_name=character_name,
+            level=level,
+            race=race,
+            sex=sex,
+            alignment=alignment,
+            background=background,
+            bio=bio,
+            character_appearance=character_appearance,
+            notes=notes
+        )
+
+        character.created_on = character.created_on.strftime("%m-%d-%Y")
+
+        # Serialize the character and return the response
+        try:
+            serializer = CharacterSerializer(character, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response({"message": str(ex)}, status=status.HTTP_400_BAD_REQUEST)
