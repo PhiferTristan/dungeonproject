@@ -17,4 +17,7 @@ class Character(models.Model):
     character_saving_throws = models.ManyToManyField("SavingThrow", through='CharacterSavingThrow')
     character_skills = models.ManyToManyField("Skill", through='CharacterSkill')
     current_party = models.ForeignKey("Party", null=True, blank=True, on_delete=models.SET_NULL)
-    
+    character_languages = models.ManyToManyField("Language", through='CharacterLanguage')
+
+    def get_character_background(self):
+        return self.characterbackground_set.first()

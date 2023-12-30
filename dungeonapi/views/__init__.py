@@ -25,3 +25,4 @@ from .character_bonds import CharacterBondViewSet
 from .character_personality_traits import CharacterPersonalityTraitViewSet
 from .parties import PartyViewSet
 from .character_dnd_classes import CharacterDnDClassViewSet
+from .character_languages import CharacterLanguageViewSet

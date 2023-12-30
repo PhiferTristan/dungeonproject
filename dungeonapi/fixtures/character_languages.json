@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterlanguage",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "language": 1
+        }
+    }
+]
