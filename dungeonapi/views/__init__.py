@@ -12,7 +12,7 @@ from .flaws import FlawViewSet
 from .ideals import IdealViewSet
 from .bonds import BondViewSet
 from .personality_traits import PersonalityTraitViewSet
-from .dndclasses import DnDClassViewSet
+from .dnd_classes import DnDClassViewSet
 from .subclasses import SubclassViewSet
 from .characters import CharacterViewSet
 from .character_ability_scores import CharacterAbilityScoreViewSet
@@ -24,3 +24,4 @@ from .character_ideals import CharacterIdealViewSet
 from .character_bonds import CharacterBondViewSet
 from .character_personality_traits import CharacterPersonalityTraitViewSet
 from .parties import PartyViewSet
+from .character_dnd_classes import CharacterDnDClassViewSet

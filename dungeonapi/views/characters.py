@@ -1,11 +1,18 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterDnDClass
 
 class BackgroundSerializer(serializers.ModelSerializer):
     class Meta:
         model = Background
         fields = "__all__"
+
+# class CharacterDnDClassSerializer(serializers.ModelSerializer):
+#     dnd_class_label = serializers.CharField(source='dnd_class.label', read_only=True)
+
+#     class Meta:
+#         model = CharacterDnDClass
+#         fields = ['id', 'dnd_class_label']
 
 class CharacterAbilityScoreSerializer(serializers.ModelSerializer):
     ability_label = serializers.CharField(source='ability.label', read_only=True)
@@ -37,10 +44,11 @@ class CharacterSerializer(serializers.ModelSerializer):
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
     character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
+    dnd_class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
 
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'user_username', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+        fields = ['id', 'player_user', 'user_username', 'dnd_class_label', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
 
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -69,12 +77,6 @@ class CharacterViewSet(viewsets.ViewSet):
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    # def list(self, request):
-    #     """Handle GET requests for all Characters"""
-    #     characters = Character.objects.all()
-    #     serializer = CharacterSerializer(characters, many=True)
-    #     return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Character"""
