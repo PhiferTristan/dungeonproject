@@ -58,6 +58,33 @@ class PartyViewSet(viewsets.ViewSet):
         serializer = PartySerializer(parties, many=True)
         return Response(serializer.data)
 
+    @action(detail=False, methods=['get'])
+    def list_for_player_user(self, request, pk=None):
+        """Handle GET requests for all Parties a player_user is a part of"""
+        try:
+            # player_user = PlayerUser.objects.get(user=request.user)
+            player_user = PlayerUser.objects.get(pk=pk)
+            parties = Party.objects.filter(characters__player_user=player_user)
+            serializer = PartySerializer(parties, many=True, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except PlayerUser.DoesNotExist as ex:
+            return Response({"message": "User is not a player user"}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    @action(detail=False, methods=['get'])
+    def list_for_dungeon_master_user(self, request, pk=None):
+        """Handle GET requests for all Parties a dungeon_master_user is a part of"""
+        try:
+            dungeon_master_user = DungeonMasterUser.objects.get(pk=pk)
+            parties = Party.objects.filter(dungeon_master=dungeon_master_user)
+            serializer = PartySerializer(parties, many=True, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except DungeonMasterUser.DoesNotExist as ex:
+            return Response({"message": "Dungeon master user not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     def retrieve(self, request, pk=None):
         """Handle GET requests for a single Party"""
         try:
