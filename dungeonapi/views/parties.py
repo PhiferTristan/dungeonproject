@@ -222,3 +222,40 @@ class PartyViewSet(viewsets.ViewSet):
             return Response({"message": "User is not a player user"}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    @action(detail=True, methods=['put'])
+    def add_character(self, request, pk=None):
+        """Handle PUT requests to add an existing Character to a Party"""
+        try:
+            party = Party.objects.get(pk=pk)
+
+            # Check if the user making the request is a player user
+            try:
+                player_user = PlayerUser.objects.get(user=request.user)
+            except PlayerUser.DoesNotExist:
+                return Response({"message": "Only Player Users can add characters to parties."}, status=status.HTTP_403_FORBIDDEN)
+
+            # Get the character_id from the request data
+            character_id = request.data.get("character_id")
+            if not character_id:
+                return Response({"message": "Character ID is required in the request body."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Get the existing character
+            character = Character.objects.get(id=character_id, player_user=player_user)
+
+            # Add the character to the party
+            party.characters.add(character)
+            party.save()
+
+            # Return the serialized character and party
+            character_serializer = CharacterSerializer(character, context={"request": request})
+            party_serializer = PartySerializer(party, context={"request": request})
+            return Response({"character": character_serializer.data, "party": party_serializer.data}, status=status.HTTP_200_OK)
+
+        except Party.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Character.DoesNotExist as ex:
+            return Response({"message": "Character not found or doesn't belong to the user."}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        

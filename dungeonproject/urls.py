@@ -48,4 +48,5 @@ urlpatterns = [
     path('parties/dungeon_master/<int:pk>/', PartyViewSet.as_view({'get': 'list_for_dungeon_master_user'}), name='list_for_dungeon_master_user'),
     path('parties/<int:pk>/remove_character/<int:character_id>/', PartyViewSet.as_view({'delete': 'remove_character'}), name='remove_character'),
     path('parties/<int:pk>/leave_party/<int:character_id>/', PartyViewSet.as_view({'delete': 'leave_party'}), name='leave_party'),
+    path('parties/<int:pk>/add_character/', PartyViewSet.as_view({'put': 'add_character'}), name='add_character'),
 ]
