@@ -41,7 +41,11 @@ urlpatterns = [
     path('users/<pk>/update', UserViewSet.as_view({"put": "update_profile"}), name='update_profile'),
     path('users/<pk>/delete', UserViewSet.as_view({"delete": "destroy_user"}), name='destroy_user'),
     path('characters/', CharacterViewSet.as_view({'get': 'list'}), name='character-list'),
+    path('characters/player/<int:player_id>/', CharacterViewSet.as_view({'get': 'list_for_player_user'}), name='list_for_player_user'),
     path('characters/<int:pk>/', CharacterViewSet.as_view({'get': 'retrieve'}), name='character-detail'),
     path('parties/', PartyViewSet.as_view({'get': 'list'}), name='party-list'),
-    path('parties/<int:pk>/remove_character/<int:character_id>/', PartyViewSet.as_view({'delete': 'remove_character'}), name='remove_character')
+    path('parties/player/<int:pk>/', PartyViewSet.as_view({'get': 'list_for_player_user'}), name='list_for_player_user'),
+    path('parties/dungeon_master/<int:pk>/', PartyViewSet.as_view({'get': 'list_for_dungeon_master_user'}), name='list_for_dungeon_master_user'),
+    path('parties/<int:pk>/remove_character/<int:character_id>/', PartyViewSet.as_view({'delete': 'remove_character'}), name='remove_character'),
+    path('parties/<int:pk>/leave_party/<int:character_id>/', PartyViewSet.as_view({'delete': 'leave_party'}), name='leave_party'),
 ]

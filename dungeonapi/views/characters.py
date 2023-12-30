@@ -59,6 +59,17 @@ class CharacterViewSet(viewsets.ViewSet):
         serializer = CharacterSerializer(characters, many=True)
         return Response(serializer.data)
 
+    def list_for_player_user(self, request, player_id=None):
+        """Handle GET requests for all Characters belonging to a player"""
+        try:
+            characters = Character.objects.filter(player_user=player_id)
+            serializer = CharacterSerializer(characters, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Character.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     # def list(self, request):
     #     """Handle GET requests for all Characters"""
     #     characters = Character.objects.all()
@@ -73,3 +84,22 @@ class CharacterViewSet(viewsets.ViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Character.DoesNotExist as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests for a single Character
+
+        Returns:
+            Response -- empty response body
+        """
+        try:
+            character = Character.objects.get(pk=pk)
+            if character.player_user.user.id == request.user.id or request.user.is_staff:
+                character.delete()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            return Response({"message": "You are not the owner of this character."}, status=status.HTTP_403_FORBIDDEN)
+        except Character.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+ 
