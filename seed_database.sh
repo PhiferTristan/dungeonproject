@@ -20,7 +20,7 @@ python3 manage.py loaddata flaws
 python3 manage.py loaddata ideals
 python3 manage.py loaddata bonds
 python3 manage.py loaddata personality_traits
-python3 manage.py loaddata dndclasses
+python3 manage.py loaddata dnd_classes
 python3 manage.py loaddata subclasses
 python3 manage.py loaddata characters
 python3 manage.py loaddata character_ability_scores
@@ -32,3 +32,4 @@ python3 manage.py loaddata character_ideals
 python3 manage.py loaddata character_bonds
 python3 manage.py loaddata character_personality_traits
 python3 manage.py loaddata parties
+python3 manage.py loaddata character_dnd_classes

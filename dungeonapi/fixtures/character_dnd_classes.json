@@ -1,0 +1,10 @@
+[
+    {
+        "model": "dungeonapi.characterdndclass",
+        "pk": 1,
+        "fields": {
+            "character": 1,
+            "dnd_class": 1
+        }
+    }
+]

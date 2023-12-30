@@ -13,7 +13,7 @@ from .flaw import Flaw
 from .ideal import Ideal
 from .bond import Bond
 from .personality_trait import PersonalityTrait
-from .dndclass import DnDClass
+from .dnd_class import DnDClass
 from .subclass import Subclass
 from .character_ability_score import CharacterAbilityScore
 from .character_saving_throw import CharacterSavingThrow
@@ -24,3 +24,4 @@ from .character_ideal import CharacterIdeal
 from .character_bond import CharacterBond
 from .character_personality_trait import CharacterPersonalityTrait
 from .party import Party
+from .character_dnd_class import CharacterDnDClass

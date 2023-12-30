@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet, CharacterViewSet, CharacterAbilityScoreViewSet, CharacterSavingThrowViewSet, CharacterSkillViewSet, CharacterBackgroundViewSet, CharacterFlawViewSet, CharacterIdealViewSet, CharacterBondViewSet, CharacterPersonalityTraitViewSet, PartyViewSet
+from dungeonapi.views import UserViewSet, RaceViewSet, AlignmentViewSet, BackgroundViewSet, LanguageViewSet, SkillViewSet, AbilityViewSet, SavingThrowViewSet, FlawViewSet, IdealViewSet, BondViewSet, PersonalityTraitViewSet, DnDClassViewSet, SubclassViewSet, DungeonMasterUserViewSet, PlayerUserViewSet, CharacterViewSet, CharacterAbilityScoreViewSet, CharacterSavingThrowViewSet, CharacterSkillViewSet, CharacterBackgroundViewSet, CharacterFlawViewSet, CharacterIdealViewSet, CharacterBondViewSet, CharacterPersonalityTraitViewSet, PartyViewSet, CharacterDnDClassViewSet
 from django.conf.urls.static import static
 from .import settings
 
@@ -17,7 +17,7 @@ router.register(r'flaws', FlawViewSet, "flaw")
 router.register(r'ideals', IdealViewSet, "ideal")
 router.register(r'bonds', BondViewSet, "bond")
 router.register(r'personality_traits', PersonalityTraitViewSet, "personality_trait")
-router.register(r'dndclasses', DnDClassViewSet, "dndclass")
+router.register(r'dnd_classes', DnDClassViewSet, "dndclass")
 router.register(r'subclasses', SubclassViewSet, "subclass")
 router.register(r'dungeon_masters', DungeonMasterUserViewSet, "dungeon_master")
 router.register(r'players', PlayerUserViewSet, "player_user")
@@ -32,6 +32,7 @@ router.register(r'character_ideals', CharacterIdealViewSet, "character_ideal")
 router.register(r'character_bonds', CharacterBondViewSet, "character_bond")
 router.register(r'character_personality_traits', CharacterPersonalityTraitViewSet, "character_personality_trait")
 router.register(r'parties', PartyViewSet, "party")
+router.register(r'character_dnd_classes', CharacterDnDClassViewSet, "character_dnd_class")
 
 urlpatterns = [
     path('', include(router.urls)),
