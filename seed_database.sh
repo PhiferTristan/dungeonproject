@@ -33,3 +33,4 @@ python3 manage.py loaddata character_bonds
 python3 manage.py loaddata character_personality_traits
 python3 manage.py loaddata parties
 python3 manage.py loaddata character_dnd_classes
+python3 manage.py loaddata character_languages

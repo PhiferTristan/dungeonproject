@@ -1,6 +1,16 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterDnDClass, PlayerUser, Race, Alignment
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, DnDClass,CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability
+
+class RaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Race
+        fields = ['label']
+
+class AlignmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Alignment
+        fields = ['label']
 
 class BackgroundSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,11 +47,28 @@ class CharacterSerializer(serializers.ModelSerializer):
     character_abilities = CharacterAbilityScoreSerializer(many=True, read_only=True, source='characterabilityscore_set')
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
     character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
+    character_bond = serializers.SerializerMethodField()
     dnd_class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
-
+    race_label = RaceSerializer(source='race', read_only=True)
+    alignment_label = AlignmentSerializer(source='alignment', read_only=True)
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'user_username', 'dnd_class_label', 'character_name', 'level', 'race', 'sex', 'alignment', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+        fields = ['id', 'player_user', 'user_username', 'character_bond','dnd_class_label', 'character_name', 'level', 'race_label', 'sex', 'alignment_label', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+
+    def get_character_bond(self, obj):
+        character_background = obj.get_character_background()
+        if character_background:
+            # Access the bond through the CharacterBond model
+            character_bond = CharacterBond.objects.filter(character_background=character_background).first()
+            if character_bond:
+                bond = character_bond.bond
+                return {
+                    "id": bond.id,
+                    "label": bond.label,
+                    "description": bond.description,
+                    "d6_number": bond.d6_number,
+                }
+        return None
 
 class CharacterViewSet(viewsets.ViewSet):
     def list(self, request):
@@ -121,6 +148,8 @@ class CharacterViewSet(viewsets.ViewSet):
         bio = request.data.get("bio", "")
         character_appearance = request.data.get("character_appearance", "")
         notes = request.data.get("notes", "")
+        bond_id = request.data.get("bond_id")
+        dnd_class_id = request.data.get("dnd_class_id")
 
         # Fetch the Race instance based on race_id
         try:
@@ -140,6 +169,12 @@ class CharacterViewSet(viewsets.ViewSet):
         except Background.DoesNotExist:
             return Response({"message": f"Background with ID {background_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Fetch the DnDClass instance based on dnd_class_id
+        try:
+            dnd_class = DnDClass.objects.get(pk=dnd_class_id)
+        except DnDClass.DoesNotExist:
+            return Response({"message": f"DnDClass with ID {dnd_class_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
 
         # Create a new character
         character = Character.objects.create(
@@ -154,6 +189,44 @@ class CharacterViewSet(viewsets.ViewSet):
             character_appearance=character_appearance,
             notes=notes
         )
+
+         # Create CharacterDnDClass instance
+        character_dnd_class = CharacterDnDClass.objects.create(
+            character=character,
+            dnd_class=dnd_class
+        )
+
+        character_background = CharacterBackground.objects.create(
+            character=character,
+            background=background
+        )
+
+        # Fetch the bond_id from the request
+        bond_id = request.data.get("bond_id")
+
+        # If a bond_id is provided, create a CharacterBond instance
+        if bond_id:
+            try:
+                bond = Bond.objects.get(pk=bond_id)
+            except Bond.DoesNotExist:
+                return Response({"message": f"Bond with ID {bond_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Create a CharacterBond instance
+            character_bond = CharacterBond.objects.create(
+                bond=bond,
+                character_background=character_background  # You might need to adjust this based on your data model
+            )
+
+        # Extract ability scores from request data
+        ability_scores = request.data.get("ability_scores", {})
+
+        # Create CharacterAbilityScore instances for each ability
+        for ability_id, score_value in ability_scores.items():
+            CharacterAbilityScore.objects.create(
+                character=character,
+                ability_id=ability_id,
+                score_value=score_value
+            )
 
         character.created_on = character.created_on.strftime("%m-%d-%Y")
 

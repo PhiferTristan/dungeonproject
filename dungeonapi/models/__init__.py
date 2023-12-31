@@ -25,3 +25,4 @@ from .character_bond import CharacterBond
 from .character_personality_trait import CharacterPersonalityTrait
 from .party import Party
 from .character_dnd_class import CharacterDnDClass
+from .character_language import CharacterLanguage
