@@ -53,4 +53,10 @@ urlpatterns = [
     path('parties/<int:pk>/add_character/', PartyViewSet.as_view({'put': 'add_character'}), name='add_character'),
     path('bonds/', BondViewSet.as_view({'get': 'list'}), name='bond-list'),
     path('bonds/<int:pk>/', BondViewSet.as_view({'get': 'retrieve'}), name='bond-detail'),
+    path('flaws/', FlawViewSet.as_view({'get': 'list'}), name='flaw-list'),
+    path('flaws/<int:pk>/', FlawViewSet.as_view({'get': 'retrieve'}), name='flaw-detail'),
+    path('ideals/', IdealViewSet.as_view({'get': 'list'}), name='ideal-list'),
+    path('ideals/<int:pk>/', IdealViewSet.as_view({'get': 'retrieve'}), name='ideal-detail'),
+    path('personality_traits/', PersonalityTraitViewSet.as_view({'get': 'list'}), name='personality-trait-list'),
+    path('personality_traits/<int:pk>/', PersonalityTraitViewSet.as_view({'get': 'retrieve'}), name='personality-trait-detail'),
 ]

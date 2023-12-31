@@ -9,8 +9,14 @@ class PersonalityTraitSerializer(serializers.ModelSerializer):
 
 class PersonalityTraitViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Personality Traits"""
-        personality_traits = PersonalityTrait.objects.all()
+        """Handle GET requests for all Personality Traits or filtered by background_id"""
+        background_id = request.query_params.get('background_id', None)
+
+        if background_id:
+            personality_traits = PersonalityTrait.objects.filter(background_id=background_id)
+        else:
+            personality_traits = PersonalityTrait.objects.all()
+
         serializer = PersonalityTraitSerializer(personality_traits, many=True)
         return Response(serializer.data)
 
