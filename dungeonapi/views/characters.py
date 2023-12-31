@@ -1,6 +1,6 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, DnDClass,CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability
 
 class RaceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -149,6 +149,7 @@ class CharacterViewSet(viewsets.ViewSet):
         character_appearance = request.data.get("character_appearance", "")
         notes = request.data.get("notes", "")
         bond_id = request.data.get("bond_id")
+        dnd_class_id = request.data.get("dnd_class_id")
 
         # Fetch the Race instance based on race_id
         try:
@@ -168,6 +169,12 @@ class CharacterViewSet(viewsets.ViewSet):
         except Background.DoesNotExist:
             return Response({"message": f"Background with ID {background_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Fetch the DnDClass instance based on dnd_class_id
+        try:
+            dnd_class = DnDClass.objects.get(pk=dnd_class_id)
+        except DnDClass.DoesNotExist:
+            return Response({"message": f"DnDClass with ID {dnd_class_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
 
         # Create a new character
         character = Character.objects.create(
@@ -181,6 +188,12 @@ class CharacterViewSet(viewsets.ViewSet):
             bio=bio,
             character_appearance=character_appearance,
             notes=notes
+        )
+
+         # Create CharacterDnDClass instance
+        character_dnd_class = CharacterDnDClass.objects.create(
+            character=character,
+            dnd_class=dnd_class
         )
 
         character_background = CharacterBackground.objects.create(
