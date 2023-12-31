@@ -1,6 +1,6 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, DnDClass,CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability
+from dungeonapi.models import Character, CharacterAbilityScore, CharacterSavingThrow, CharacterSkill, Background, CharacterBackground, DnDClass,CharacterDnDClass, PlayerUser, Race, Alignment, Bond, CharacterBond, Alignment, Ability, Flaw, CharacterFlaw, Ideal, CharacterIdeal, PersonalityTrait, CharacterPersonalityTrait
 
 class RaceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -48,12 +48,16 @@ class CharacterSerializer(serializers.ModelSerializer):
     character_saving_throws = CharacterSavingThrowSerializer(many=True, read_only=True, source='charactersavingthrow_set' )
     character_skills = CharacterSkillSerializer(many=True, read_only=True, source='characterskill_set')
     character_bond = serializers.SerializerMethodField()
+    character_flaw = serializers.SerializerMethodField()
+    character_ideal = serializers.SerializerMethodField()
+    character_personality_trait = serializers.SerializerMethodField()
     dnd_class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
     race_label = RaceSerializer(source='race', read_only=True)
     alignment_label = AlignmentSerializer(source='alignment', read_only=True)
+
     class Meta:
         model = Character
-        fields = ['id', 'player_user', 'user_username', 'character_bond','dnd_class_label', 'character_name', 'level', 'race_label', 'sex', 'alignment_label', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+        fields = ['id', 'player_user', 'user_username', 'character_bond', 'character_flaw', 'character_ideal', 'character_personality_trait','dnd_class_label', 'character_name', 'level', 'race_label', 'sex', 'alignment_label', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
 
     def get_character_bond(self, obj):
         character_background = obj.get_character_background()
@@ -67,6 +71,51 @@ class CharacterSerializer(serializers.ModelSerializer):
                     "label": bond.label,
                     "description": bond.description,
                     "d6_number": bond.d6_number,
+                }
+        return None
+
+    def get_character_flaw(self, obj):
+        character_background = obj.get_character_background()
+        if character_background:
+            # Access the flaw through the CharacterFlaw model
+            character_flaw = CharacterFlaw.objects.filter(character_background=character_background).first()
+            if character_flaw:
+                flaw = character_flaw.flaw
+                return {
+                    "id": flaw.id,
+                    "label": flaw.label,
+                    "description": flaw.description,
+                    "d6_number": flaw.d6_number,
+                }
+        return None
+
+    def get_character_ideal(self, obj):
+        character_background = obj.get_character_background()
+        if character_background:
+            # Access the ideal through the CharacterIdeal model
+            character_ideal = CharacterIdeal.objects.filter(character_background=character_background).first()
+            if character_ideal:
+                ideal = character_ideal.ideal
+                return {
+                    "id": ideal.id,
+                    "label": ideal.label,
+                    "description": ideal.description,
+                    "d6_number": ideal.d6_number,
+                }
+        return None
+
+    def get_character_personality_trait(self, obj):
+        character_background = obj.get_character_background()
+        if character_background:
+            # Access the personality_trait through the CharacterPersonalityTrait model
+            character_personality_trait = CharacterPersonalityTrait.objects.filter(character_background=character_background).first()
+            if character_personality_trait:
+                personality_trait = character_personality_trait.personality_trait
+                return {
+                    "id": personality_trait.id,
+                    "label": personality_trait.label,
+                    "description": personality_trait.description,
+                    "d8_number": personality_trait.d8_number,
                 }
         return None
 
@@ -214,7 +263,55 @@ class CharacterViewSet(viewsets.ViewSet):
             # Create a CharacterBond instance
             character_bond = CharacterBond.objects.create(
                 bond=bond,
-                character_background=character_background  # You might need to adjust this based on your data model
+                character_background=character_background
+            )
+
+        # Fetch the flaw_id from the request
+        flaw_id = request.data.get("flaw_id")
+
+        # If a flaw_id is provided, create a CharacterFlaw instance
+        if flaw_id:
+            try:
+                flaw = Flaw.objects.get(pk=flaw_id)
+            except Flaw.DoesNotExist:
+                return Response({"message": f"Flaw with ID {flaw_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Create a CharacterFlaw instance
+            character_flaw = CharacterFlaw.objects.create(
+                flaw=flaw,
+                character_background=character_background
+            )
+
+        # Fetch the ideal_id from the request
+        ideal_id = request.data.get("ideal_id")
+
+        # If a ideal_id is provided, create a CharacterIdeal instance
+        if ideal_id:
+            try:
+                ideal = Ideal.objects.get(pk=ideal_id)
+            except Ideal.DoesNotExist:
+                return Response({"message": f"Ideal with ID {ideal_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Create a CharacterIdeal instance
+            character_ideal = CharacterIdeal.objects.create(
+                ideal=ideal,
+                character_background=character_background
+            )
+
+        # Fetch the personality_trait_id from the request
+        personality_trait_id = request.data.get("personality_trait_id")
+
+        # If a personality_trait_id is provided, create a CharacterPersonalityTrait instance
+        if personality_trait_id:
+            try:
+                personality_trait = PersonalityTrait.objects.get(pk=personality_trait_id)
+            except PersonalityTrait.DoesNotExist:
+                return Response({"message": f"Personality Trait with ID {personality_trait_id} does not exist."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Create a CharacterPersonalityTrait instance
+            character_personality_trait = CharacterPersonalityTrait.objects.create(
+                personality_trait=personality_trait,
+                character_background=character_background
             )
 
         # Extract ability scores from request data

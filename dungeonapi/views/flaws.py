@@ -9,8 +9,14 @@ class FlawSerializer(serializers.ModelSerializer):
 
 class FlawViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Flaws"""
-        flaws = Flaw.objects.all()
+        """Handle GET requests for all Flaws or filtered by background_id"""
+        background_id = request.query_params.get('background_id', None)
+
+        if background_id:
+            flaws = Flaw.objects.filter(background_id=background_id)
+        else:
+            flaws = Flaw.objects.all()
+
         serializer = FlawSerializer(flaws, many=True)
         return Response(serializer.data)
 

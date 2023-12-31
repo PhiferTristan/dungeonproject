@@ -9,8 +9,14 @@ class IdealSerializer(serializers.ModelSerializer):
 
 class IdealViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Ideals"""
-        ideals = Ideal.objects.all()
+        """Handle GET requests for all Ideals or filtered by background_id"""
+        background_id = request.query_params.get('background_id', None)
+
+        if background_id:
+            ideals = Ideal.objects.filter(background_id=background_id)
+        else:
+            ideals = Ideal.objects.all()
+
         serializer = IdealSerializer(ideals, many=True)
         return Response(serializer.data)
 
