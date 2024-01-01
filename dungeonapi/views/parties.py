@@ -25,10 +25,11 @@ class PlayerUserSerializer(serializers.ModelSerializer):
 
 class CharacterSerializer(serializers.ModelSerializer):
     player_user = PlayerUserSerializer()
+    class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
 
     class Meta:
         model = Character
-        fields = ['id', 'character_name', 'level', 'player_user', 'race', 'current_party']
+        fields = ['id', 'character_name', 'class_label', 'level', 'player_user', 'race', 'current_party']
 
 class PartySerializer(serializers.ModelSerializer):
     dungeon_master = DungeonMasterUserSerializer()
