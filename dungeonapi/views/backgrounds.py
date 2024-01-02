@@ -1,8 +1,15 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Background
+from dungeonapi.models import Background, Skill
+
+class SkillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ['id', 'label']
 
 class BackgroundSerializer(serializers.ModelSerializer):
+    skill_prof_1 = SkillSerializer(read_only=True)
+    skill_prof_2 = SkillSerializer(read_only=True)
     class Meta:
         model = Background
         fields = "__all__"

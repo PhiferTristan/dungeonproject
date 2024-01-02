@@ -1,11 +1,19 @@
 from rest_framework import viewsets, serializers, status
 from rest_framework.response import Response
-from dungeonapi.models import Race
+from dungeonapi.models import Race, Language
+
+class LanguageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Language
+        fields = ['id', 'label', 'exotic', 'script']
 
 class RaceSerializer(serializers.ModelSerializer):
+    first_language = LanguageSerializer(read_only=True)
+    second_language = LanguageSerializer(read_only=True)
+
     class Meta:
         model = Race
-        fields = ['id', 'label', 'description']
+        fields = ['id', 'label', 'description', 'darkvision', 'first_language', 'second_language']
 
 class RaceViewSet(viewsets.ViewSet):
     """Handle GET requests for all Races

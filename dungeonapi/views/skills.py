@@ -1,8 +1,14 @@
 from rest_framework import viewsets, status, serializers
 from rest_framework.response import Response
-from dungeonapi.models import Skill
+from dungeonapi.models import Skill, Ability
+
+class AbilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ability
+        fields = ['id', 'label']
 
 class SkillSerializer(serializers.ModelSerializer):
+    ability = AbilitySerializer(read_only=True)
     class Meta:
         model = Skill
         fields = "__all__"
