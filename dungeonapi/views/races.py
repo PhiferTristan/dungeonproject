@@ -13,7 +13,7 @@ class RaceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Race
-        fields = ['id', 'label', 'description', 'darkvision', 'first_language', 'second_language']
+        fields = ['id', 'label', 'speed', 'description', 'darkvision', 'first_language', 'second_language']
 
 class RaceViewSet(viewsets.ViewSet):
     """Handle GET requests for all Races
