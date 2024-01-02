@@ -246,4 +246,25 @@ class PartyViewSet(viewsets.ViewSet):
             return Response({"message": "Character not found or doesn't belong to the user."}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as ex:
             return Response({"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
+    @action(detail=True, methods=['put'], url_path='update-status')
+    def update_status(self, request, pk=None):
+        """Update LFP status for a Party"""
+        try:
+            party = Party.objects.get(pk=pk)
+
+            # Assuming you have a 'status' field in your request data
+            new_status = request.data.get('status', False)
+
+            if party:
+                party.lfp_status = new_status
+                party.save()
+            else:
+                return Response({"message": "Party not found"}, status=status.HTTP_404_NOT_FOUND)
+
+            serializer = PartySerializer(party, context={"request": request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except Party.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+                    
