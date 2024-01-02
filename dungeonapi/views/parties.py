@@ -52,7 +52,7 @@ class PartyViewSet(viewsets.ViewSet):
         try:
             # player_user = PlayerUser.objects.get(user=request.user)
             player_user = PlayerUser.objects.get(pk=pk)
-            parties = Party.objects.filter(characters__player_user=player_user)
+            parties = Party.objects.filter(characters__player_user=player_user).order_by('-created_on')
             serializer = PartySerializer(parties, many=True, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except PlayerUser.DoesNotExist as ex:
@@ -65,7 +65,7 @@ class PartyViewSet(viewsets.ViewSet):
         """Handle GET requests for all Parties a dungeon_master_user is a part of"""
         try:
             dungeon_master_user = DungeonMasterUser.objects.get(pk=pk)
-            parties = Party.objects.filter(dungeon_master=dungeon_master_user)
+            parties = Party.objects.filter(dungeon_master=dungeon_master_user).order_by('-created_on')
             serializer = PartySerializer(parties, many=True, context={"request": request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except DungeonMasterUser.DoesNotExist as ex:
