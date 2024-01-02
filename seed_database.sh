@@ -9,10 +9,10 @@ python3 manage.py loaddata users
 python3 manage.py loaddata tokens
 python3 manage.py loaddata dungeon_master_users
 python3 manage.py loaddata player_users
+python3 manage.py loaddata languages
 python3 manage.py loaddata races
 python3 manage.py loaddata alignments
 python3 manage.py loaddata backgrounds
-python3 manage.py loaddata languages
 python3 manage.py loaddata skills
 python3 manage.py loaddata abilities
 python3 manage.py loaddata saving_throws
