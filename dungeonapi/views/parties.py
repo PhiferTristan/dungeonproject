@@ -41,21 +41,8 @@ class PartySerializer(serializers.ModelSerializer):
 
 class PartyViewSet(viewsets.ViewSet):
     def list(self, request):
-        """Handle GET requests for all Parties"""
-        # Retrieve the player_id and dungeon_master_id from the request query parameters
-        player_id = request.query_params.get('player_id', None)
-        dungeon_master_id = request.query_params.get('dungeon_master_id', None)
-
-        # endpoint /parties/?player_id=your_player_id&dungeon_master_id=your_dm_id
-        if player_id or dungeon_master_id:
-            # If either player_id or dungeon_master_id is provided, filter parties based on either
-            parties = Party.objects.filter(
-                Q(characters__player_user=player_id) | Q(dungeon_master__user=dungeon_master_id)
-            ).distinct()
-        else:
-            # If neither player_id nor dungeon_master_id is provided, get all parties
-            parties = Party.objects.all()
-
+        """Handle GET requests for all Languages"""
+        parties = Party.objects.all()
         serializer = PartySerializer(parties, many=True)
         return Response(serializer.data)
 
