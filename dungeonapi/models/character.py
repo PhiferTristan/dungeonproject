@@ -12,7 +12,7 @@ class Character(models.Model):
     bio = models.CharField(max_length=755)
     notes = models.CharField(max_length=755)
     character_appearance = models.CharField(max_length=755)
-    created_on = models.DateField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     character_abilities = models.ManyToManyField("Ability", through='CharacterAbilityScore')
     character_saving_throws = models.ManyToManyField("SavingThrow", through='CharacterSavingThrow')
     character_skills = models.ManyToManyField("Skill", through='CharacterSkill')

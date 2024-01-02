@@ -2,12 +2,24 @@ from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import serializers
-from dungeonapi.models import PlayerUser, CustomUser, Character
+from dungeonapi.models import PlayerUser, CustomUser, Character, Race, DnDClass
+
+class DnDClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DnDClass
+        fields = ['label']
+
+class RaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Race
+        fields = ['label']
 
 class CharacterSerializer(serializers.ModelSerializer):
+    class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
+    race_label = RaceSerializer(source='race', read_only=True)
     class Meta:
         model = Character
-        fields = "__all__"
+        fields = ['id', 'race_label', 'class_label', 'character_name', 'level', 'created_on', 'player_user', 'race', 'alignment', 'background']
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:

@@ -6,7 +6,7 @@
             "dungeon_master": 1,
             "characters": [1,2],
             "name": "Test Party",
-            "created_on": "2023-01-02",
+            "created_on": "2023-01-02T00:00:00Z",
             "lfp_status": true,
             "description": "hope this goes well"
         }
