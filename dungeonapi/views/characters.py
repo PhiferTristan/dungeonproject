@@ -69,9 +69,11 @@ class CharacterSerializer(serializers.ModelSerializer):
     background_id = serializers.IntegerField(source='background.id', read_only=True, allow_null=True)
     class_label = serializers.CharField(source='characterdndclass.dnd_class.label' ,read_only=True)
 
+
     class Meta:
         model = Character
         fields = ['id', 'class_id', 'user_id', 'class_label', 'race_id', 'alignment_id', 'background_id', 'player_user', 'user_username', 'character_name', 'character_bond', 'character_flaw', 'character_ideal', 'character_personality_trait', 'level', 'race_label', 'sex', 'alignment_label', 'background', 'bio', 'notes', 'character_appearance', 'created_on', 'character_abilities', 'character_saving_throws', 'character_skills']
+
 
     def get_character_bond(self, obj):
         character_background = obj.get_character_background()
